@@ -219,6 +219,15 @@
   <p>ИНН 1224005173 · КПП 122401001 · ОГРН 1181215000328</p>
   <p>© Все права защищены</p>
   </footer>
+<script>
+  const TG_USERNAME = "alikanto"; // без @
+
+  function tgOrder(product, price){
+    const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}. Документы могу отправить в чат.`;
+    const url = `https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  }
+</script>
 
 </body>
 </html>
