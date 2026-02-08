@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Изготовление автомобильных номеров по ГОСТ</title>
 
-  <!-- CSS подключаем ОДИН раз и только внутри head -->
+  <!-- Основные стили -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Плавная прокрутка к якорям -->
   <style>
     html { scroll-behavior: smooth; }
 
-    /* Простая шапка-меню */
+    /* ===== ШАПКА ===== */
     .topbar{
       position: sticky;
       top: 0;
@@ -34,179 +33,108 @@
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      letter-spacing: .2px;
       white-space: nowrap;
-      opacity: .95;
     }
     .topbar nav{
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
     .topbar nav a{
       color: #fff;
       text-decoration: none;
-      opacity: .9;
       font-size: 14px;
       padding: 6px 10px;
       border-radius: 10px;
+      opacity: .9;
     }
     .topbar nav a:hover{
       background: rgba(255,255,255,.08);
       opacity: 1;
     }
 
-    /* Чтобы якорь не прятался под липкой шапкой */
     section{ scroll-margin-top: 70px; }
   </style>
 </head>
 
 <body>
 
-  <!-- ================= ШАПКА с якорями ================= -->
-  <header class="topbar">
-    <div class="wrap">
-      <a class="brand" href="#hero">ГОСНОМЕРА</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#hero">ГОСНОМЕРА</a>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
 
-      <nav>
-        <a href="#catalog">Каталог</a>
-        <a href="#process">Как мы работаем</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-    </div>
-  </header>
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <h1>Изготовление автомобильных номеров по ГОСТ</h1>
+  <p>
+    Официальное изготовление дубликатов государственных номеров за 5–10 минут<br>
+    Работаем по ГОСТ
+  </p>
 
-  <!-- ================= HERO ================= -->
-  <section id="hero">
+  <div class="actions">
+    <a class="btn primary" href="#catalog">Изготовить номер</a>
+    <a class="btn secondary" href="https://t.me/alikanto" target="_blank">Написать в Telegram</a>
+  </div>
 
-    <h1>Изготовление автомобильных номеров по ГОСТ</h1>
+  <ul>
+    <li>Принимают в ГИБДД</li>
+    <li>Чек ККТ и гарантия</li>
+    <li>Все типы номеров</li>
+  </ul>
+</section>
 
-    <p>
-      Официальное изготовление дубликатов государственных номеров за 5–10 минут<br>
-      Работаем по ГОСТ
-    </p>
+<!-- ===== ЗАКОННО ===== -->
+<section id="about">
+  <h2>Законно и по ГОСТ</h2>
+  <p>
+    Мы имеем право на изготовление государственных регистрационных знаков.
+    Изготовление выполняется строго по ГОСТ с использованием сертифицированных заготовок.
+  </p>
 
-    <div class="actions">
-      <a class="btn primary" href="#catalog">
-        Изготовить номер
-      </a>
+  <ul>
+    <li>Чек ККТ и гарантия</li>
+    <li>Стандартные, квадратные, мото, прицеп</li>
+    <li>Готовность обычно 5–10 минут</li>
+  </ul>
+</section>
 
-      <a class="btn secondary"
-         href="https://t.me/alikanto"
-         target="_blank"
-         rel="noopener">
-        Написать в Telegram
-      </a>
-    </div>
+<!-- ===== КАК МЫ РАБОТАЕМ ===== -->
+<section id="process">
+  <h2>Как мы работаем</h2>
+  <ol>
+    <li>Отправляете фото документов в Telegram.</li>
+    <li>Мы проверяем данные и подтверждаем заказ.</li>
+    <li>Изготавливаем номер за 5–10 минут.</li>
+    <li>Получаете номер в офисе или с доставкой.</li>
+  </ol>
+</section>
 
-    <ul>
-      <li>Принимают в ГИБДД</li>
-      <li>Чек ККТ и гарантия</li>
-      <li>Все типы номеров</li>
-    </ul>
-  </section>
+<!-- ===== КАТАЛОГ ===== -->
+<section id="catalog">
+  <h2>Каталог номеров</h2>
+  <p>Выберите вариант и нажмите «Заказать» — откроется Telegram.</p>
 
-  <!-- ================= О НАС ================= -->
-  <section id="about">
-    <h2>Законно и по ГОСТ</h2>
-    <p>
-      Мы имеем право на изготовление государственных регистрационных знаков.
-      Изготовление выполняется строго по ГОСТ с использованием сертифицированных заготовок.
-    </p>
+  <div class="cards">
+    <div class="card"><h3>1 госномер</h3><p class="price">2 200 ₽</p><button class="btn primary" onclick="tgOrder('1 госномер', '2 200 ₽')">Заказать</button></div>
+    <div class="card"><h3>2 госномера</h3><p class="price">2 900 ₽</p><button class="btn primary" onclick="tgOrder('2 госномера', '2 900 ₽')">Заказать</button></div>
+    <div class="card"><h3>Квадратный номер</h3><p class="price">2 200 ₽</p><button class="btn primary" onclick="tgOrder('Квадратный номер', '2 200 ₽')">Заказать</button></div>
+    <div class="card"><h3>Жирные номера (2 шт)</h3><p class="price">3 500 ₽</p><button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button></div>
+  </div>
 
-    <ul>
-      <li>Чек ККТ и гарантия</li>
-      <li>Все типы номеров: стандарт, квадратные, мото, прицеп</li>
-      <li>Готовность обычно 5–10 минут</li>
-    </ul>
-  </section>
+  <p style="margin-top:12px; opacity:.85;">
+    * Для дистанционного заказа отправьте в Telegram фото СТС/ПТС и паспорта или прав.
+  </p>
+</section>
 
-  <!-- ================= КАК МЫ РАБОТАЕМ ================= -->
-  <section id="process">
-    <h2>Как мы работаем</h2>
-    <ol>
-      <li>Вы отправляете фото документов в Telegram (СТС или ПТС + паспорт или права).</li>
-      <li>Мы проверяем данные и подтверждаем заказ.</li>
-      <li>Изготавливаем номер за 5–10 минут.</li>
-      <li>Вы получаете готовый номер в офисе или с доставкой.</li>
-    </ol>
-  </section>
-
-  <!-- ================= КАТАЛОГ ================= -->
-  <section id="catalog">
-    <h2>Каталог номеров</h2>
-    <p>Выберите нужный вариант и нажмите «Заказать» — откроется Telegram с готовым текстом.</p>
-
-    <div class="cards">
-      <div class="card">
-        <h3>1 госномер на авто</h3>
-        <p class="price">2 200 ₽</p>
-        <button class="btn primary" onclick="tgOrder('1 госномер на авто', '2 200 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>2 госномера на авто</h3>
-        <p class="price">2 900 ₽</p>
-        <button class="btn primary" onclick="tgOrder('2 госномера на авто', '2 900 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>Квадратный номер на авто</h3>
-        <p class="price">2 200 ₽</p>
-        <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>Квадратный номер для мотоциклов (стандарт, мини)</h3>
-        <p class="price">2 200 ₽</p>
-        <button class="btn primary" onclick="tgOrder('Квадратный номер для мотоциклов (стандарт, мини)', '2 200 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>1 госномер без флага</h3>
-        <p class="price">2 200 ₽</p>
-        <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>2 госномера без флага</h3>
-        <p class="price">2 900 ₽</p>
-        <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>2 квадратных номера</h3>
-        <p class="price">3 900 ₽</p>
-        <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>1 стандартный + 1 квадратный</h3>
-        <p class="price">3 400 ₽</p>
-        <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>Жирные номера (1 шт)</h3>
-        <p class="price">2 500 ₽</p>
-        <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
-      </div>
-
-      <div class="card">
-        <h3>Жирные номера (2 шт)</h3>
-        <p class="price">3 500 ₽</p>
-        <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
-      </div>
-    </div>
-
-    <p style="margin-top:12px; opacity:.85;">
-      * Для дистанционного заказа отправьте в Telegram фото документов: (1) СТС или ПТС (2) паспорт или права.
-    </p>
-  </section>
-
-  <!-- ================= ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ ================= -->
-  <section id="legal" class="section">
+<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ ===== -->
+<section id="legal">
   <h2>Юридическая информация</h2>
 
   <p>
@@ -219,81 +147,60 @@
     и регистрационных действиях в ГИБДД.
   </p>
 
-  <p>
-    <strong>Подтверждающие документы и реквизиты организации — ниже.</strong>
-  </p>
+  <p><strong>Подтверждающие документы и реквизиты организации — ниже.</strong></p>
 </section>
 
+<!-- ===== УДОБСТВО ===== -->
+<section id="comfort">
+  <h2>Для вашего удобства</h2>
+  <ul>
+    <li>Удобная парковка</li>
+    <li>Оплата наличными и по карте</li>
+    <li>Бесплатный Wi-Fi</li>
+    <li>Чашка кофе в офисе</li>
+  </ul>
+</section>
 
-  <!-- ================= УДОБСТВО ================= -->
-  <section id="comfort">
-    <h2>Для вашего удобства</h2>
-    <ul>
-      <li>Удобная парковка для автомобиля</li>
-      <li>Оплата наличными и по карте</li>
-      <li>Бесплатный Wi-Fi</li>
-      <li>Чашка кофе в офисе</li>
-    </ul>
-  </section>
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <h2>Частые вопросы</h2>
+  <h3>Это законно?</h3>
+  <p>Да. Работаем по ГОСТ, номера принимаются в ГИБДД.</p>
 
-  <!-- ================= CTA перед FAQ ================= -->
-  <div style="margin-top:20px;">
-    <button class="btn primary" onclick="tgOrder('Консультация', '—')">
-      Задать вопрос в Telegram
-    </button>
-  </div>
+  <h3>Сколько времени?</h3>
+  <p>Обычно 5–10 минут.</p>
 
-  <!-- ================= FAQ ================= -->
-  <section id="faq">
-    <h2>Частые вопросы</h2>
+  <h3>Есть гарантия?</h3>
+  <p>Да, 12 месяцев.</p>
+</section>
 
-    <h3>Это законно?</h3>
-    <p>Да. Изготавливаем строго по ГОСТ, на сертифицированных заготовках. Номера принимаются в ГИБДД.</p>
+<!-- ===== КОНТАКТЫ ===== -->
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p><strong>Телефон:</strong> +7 902 431-49-30</p>
+  <p><strong>Адрес:</strong> Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22</p>
+  <p><strong>Telegram:</strong> <a href="https://t.me/alikanto" target="_blank">написать</a></p>
+  <p><strong>Email:</strong> alikanto_00@mail.ru</p>
+</section>
 
-    <h3>Примут ли номер в ГИБДД?</h3>
-    <p>Да. Номера принимаются при проверках и регистрационных действиях.</p>
+<footer>
+  <p>ООО «АЛИКАНТО»</p>
+  <p>ИНН 1224005173 · ОГРН 1181215000328</p>
+  <p>© Все права защищены</p>
+</footer>
 
-    <h3>Можно ли заказать дистанционно?</h3>
-    <p>Да. Отправьте фото документов в Telegram, после оплаты изготовим номер.</p>
+<!-- ===== ПЛАВАЮЩАЯ КНОПКА TELEGRAM ===== -->
+<a href="https://t.me/alikanto" class="tg-float btn primary" target="_blank">
+  Задать вопрос в Telegram
+</a>
 
-    <h3>Как долго делается номер?</h3>
-    <p>Обычно 5–10 минут. При доставке добавляется время на отправку.</p>
+<script>
+  function tgOrder(product, price){
+    const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}.`;
+    window.open(`https://t.me/alikanto?text=${encodeURIComponent(text)}`, '_blank');
+  }
+</script>
 
-    <h3>Какая гарантия?</h3>
-    <p>Гарантия 12 месяцев. При дефекте заменим бесплатно.</p>
-  </section>
+</body>
+</html>
 
-  <!-- ================= КОНТАКТЫ ================= -->
-  <section id="contacts">
-    <h2>Контакты</h2>
-
-    <p><strong>Телефон:</strong> +7 902 431-49-30</p>
-    <p><strong>Адрес:</strong> Республика Марий Эл, г. Волжск, ул. Транспортная, д. 2М, оф. 22</p>
-
-    <p>
-      <strong>Telegram:</strong>
-      <a href="https://t.me/alikanto" target="_blank" rel="noopener">написать</a>
-    </p>
-
-    <p><strong>Режим работы:</strong><br>
-      Пн–Пт: 09:00–17:00<br>
-      Сб: 09:00–12:00<br>
-      Вс: выходной
-    </p>
-
-    <p><strong>Email:</strong> alikanto_00@mail.ru</p>
-  </section>
-
-  <!-- ================= ФУТЕР ================= -->
-  <footer id="footer">
-    <p>ООО «АЛИКАНТО»</p>
-    <p>ИНН 1224005173 · КПП 122401001 · ОГРН 1181215000328</p>
-    <p>© Все права защищены</p>
-  </footer>
-
-  <!-- Один единственный скрипт -->
-  <script>
-    const TG_USERNAME = "alikanto"; // без @
-    function tgOrder(product, price){
-      const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}. Документы могу отправить в чат.`;
-      const url = `https://t.me/${TG_US_
