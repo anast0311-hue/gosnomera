@@ -1,4 +1,5 @@
 *{box-sizing:border-box}
+
 :root{
   --bg:#0b1220;
   --card:rgba(255,255,255,.06);
@@ -9,7 +10,10 @@
   --accent2:#12b886;
 }
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -20,21 +24,121 @@ body{
   line-height:1.5;
 }
 
+/* ====== TOPBAR (шапка с якорями) ====== */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(11,18,32,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.topbar .wrap{
+  max-width:1040px;
+  margin:0 auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.topbar .brand{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:.2px;
+  white-space:nowrap;
+  opacity:.95;
+}
+
+.topbar .menu{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.topbar .menu a{
+  color:var(--text);
+  text-decoration:none;
+  opacity:.9;
+  font-weight:700;
+  font-size:14px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid transparent;
+}
+
+.topbar .menu a:hover{
+  opacity:1;
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.10);
+}
+
+/* чтобы при клике на якорь секция не пряталась под шапкой */
+section{
+  scroll-margin-top:80px;
+}
+
+/* ====== БАЗОВАЯ ВЁРСТКА СЕКЦИЙ ====== */
 section, footer{
   max-width:1040px;
   margin:0 auto;
   padding:56px 20px;
   border-top:1px solid rgba(255,255,255,.08);
 }
-#hero{border-top:none;padding-top:72px;padding-bottom:48px}
 
-h1{margin:0 0 10px;font-size:clamp(28px,3.2vw,44px);letter-spacing:-.02em}
-h2{margin:0 0 14px;font-size:clamp(20px,2.2vw,28px)}
-p{margin:0 0 16px;color:var(--muted);max-width:75ch}
-ul,ol{margin:12px 0 0;padding-left:18px;color:var(--muted)}
-li{margin:8px 0}
+/* hero немного выше, чтобы красиво смотрелось под шапкой */
+#hero{
+  border-top:none;
+  padding-top:72px;
+  padding-bottom:48px;
+}
 
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 10px}
+h1{
+  margin:0 0 10px;
+  font-size:clamp(28px,3.2vw,44px);
+  letter-spacing:-.02em;
+}
+
+h2{
+  margin:0 0 14px;
+  font-size:clamp(20px,2.2vw,28px);
+}
+
+p{
+  margin:0 0 16px;
+  color:var(--muted);
+  max-width:75ch;
+}
+
+ul,ol{
+  margin:12px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+}
+
+li{
+  margin:8px 0;
+}
+
+/* ====== УБИРАЕМ ТОЧКИ У UL (глобально) ====== */
+ul{
+  list-style:none;
+  padding-left:0;
+  margin-left:0;
+}
+
+/* ====== КНОПКИ ====== */
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:16px 0 10px;
+}
+
 .btn, button{
   appearance:none;
   display:inline-flex;
@@ -51,32 +155,61 @@ li{margin:8px 0}
   text-decoration:none;
   transition:transform .08s ease, filter .2s ease, border-color .2s ease;
 }
-.btn:hover, button:hover{filter:brightness(1.06);border-color:rgba(255,255,255,.22)}
-.btn:active, button:active{transform:translateY(1px)}
-.btn.primary{background:linear-gradient(135deg, rgba(91,124,255,.92), rgba(91,124,255,.55));border-color:rgba(91,124,255,.65)}
-.btn.secondary{background:linear-gradient(135deg, rgba(18,184,134,.85), rgba(18,184,134,.55));border-color:rgba(18,184,134,.55)}
 
+.btn:hover, button:hover{
+  filter:brightness(1.06);
+  border-color:rgba(255,255,255,.22);
+}
+
+.btn:active, button:active{
+  transform:translateY(1px);
+}
+
+.btn.primary{
+  background:linear-gradient(135deg, rgba(91,124,255,.92), rgba(91,124,255,.55));
+  border-color:rgba(91,124,255,.65);
+}
+
+.btn.secondary{
+  background:linear-gradient(135deg, rgba(18,184,134,.85), rgba(18,184,134,.55));
+  border-color:rgba(18,184,134,.55);
+}
+
+/* ====== КАТАЛОГ ====== */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:14px;
   margin-top:14px;
 }
+
 .card{
   background:rgba(255,255,255,.04);
   border:1px solid var(--border);
   border-radius:16px;
   padding:16px;
 }
-.card h3{margin:0 0 8px;font-size:16px}
-.price{margin:10px 0 14px;font-size:20px;font-weight:900;color:var(--text)}
 
+.card h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.price{
+  margin:10px 0 14px;
+  font-size:20px;
+  font-weight:900;
+  color:var(--text);
+}
+
+/* ====== СЕРТИФИКАТЫ (если добавишь фото) ====== */
 .certs{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
   gap:12px;
   margin-top:14px;
 }
+
 .certs img{
   width:100%;
   height:auto;
@@ -85,19 +218,55 @@ li{margin:8px 0}
   background:rgba(255,255,255,.02);
 }
 
+/* ====== FAQ (если когда-то перейдёшь на details/summary) ====== */
 details{
   background:rgba(255,255,255,.04);
   border:1px solid var(--border);
   border-radius:14px;
   padding:12px 14px;
 }
-details + details{margin-top:10px}
-summary{cursor:pointer;font-weight:800}
-details p{margin-top:10px}
 
-footer{border-top:1px solid rgba(255,255,255,.10);padding-top:28px;padding-bottom:40px;color:var(--muted);font-size:14px}
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+details + details{
+  margin-top:10px;
+}
+
+summary{
+  cursor:pointer;
+  font-weight:800;
+}
+
+details p{
+  margin-top:10px;
+}
+
+/* ====== ФУТЕР ====== */
+footer{
+  border-top:1px solid rgba(255,255,255,.10);
+  padding-top:28px;
+  padding-bottom:40px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* ====== ПЛАВАЮЩАЯ КНОПКА TELEGRAM ====== */
+.tg-float{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:1000;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius:999px;
+  border:1px solid rgba(18,184,134,.55);
+  background:linear-gradient(135deg, rgba(18,184,134,.85), rgba(18,184,134,.55));
+  color:var(--text);
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.tg-float:hover{
+  filter:brightness(1.06);
 }
