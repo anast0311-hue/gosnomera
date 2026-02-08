@@ -117,27 +117,88 @@
 </section>
 
 <!-- ===== КАТАЛОГ ===== -->
+<!-- ===== КАТАЛОГ ===== -->
 <section id="catalog">
   <h2>Каталог номеров</h2>
-  <p>Выберите вариант и нажмите «Заказать» — откроется Telegram.</p>
+  <p>Выберите вариант и нажмите «Заказать» — откроется Telegram с готовым текстом.</p>
 
   <div class="cards">
+    <!-- Стандарт -->
     <div class="card">
-      <h3>1 госномер</h3>
+      <h3>1 госномер на авто (стандарт)</h3>
       <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('1 госномер', '2 200 ₽')">Заказать</button>
+      <button class="btn primary" onclick="tgOrder('1 госномер на авто (стандарт)', '2 200 ₽')">Заказать</button>
     </div>
 
     <div class="card">
-      <h3>2 госномера</h3>
+      <h3>2 госномера на авто (стандарт)</h3>
       <p class="price">2 900 ₽</p>
-      <button class="btn primary" onclick="tgOrder('2 госномера', '2 900 ₽')">Заказать</button>
+      <button class="btn primary" onclick="tgOrder('2 госномера на авто (стандарт)', '2 900 ₽')">Заказать</button>
+    </div>
+
+    <!-- Квадрат -->
+    <div class="card">
+      <h3>Квадратный номер на авто</h3>
+      <p class="price">2 200 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
     </div>
 
     <div class="card">
-      <h3>Квадратный номер</h3>
+      <h3>2 квадратных номера</h3>
+      <p class="price">3 900 ₽</p>
+      <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>1 стандартный + 1 квадратный</h3>
+      <p class="price">3 400 ₽</p>
+      <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
+    </div>
+
+    <!-- Мото -->
+    <div class="card">
+      <h3>Номер на мото (стандарт)</h3>
       <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Квадратный номер', '2 200 ₽')">Заказать</button>
+      <button class="btn primary" onclick="tgOrder('Номер на мото (стандарт)', '2 200 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>Номер на мото (мини)</h3>
+      <p class="price">2 200 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Номер на мото (мини)', '2 200 ₽')">Заказать</button>
+    </div>
+
+    <!-- Прицеп -->
+    <div class="card">
+      <h3>Номер на прицеп (1 шт)</h3>
+      <p class="price">2 200 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Номер на прицеп (1 шт)', '2 200 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>Номер на прицеп (2 шт)</h3>
+      <p class="price">2 900 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Номер на прицеп (2 шт)', '2 900 ₽')">Заказать</button>
+    </div>
+
+    <!-- Без флага -->
+    <div class="card">
+      <h3>1 госномер без флага</h3>
+      <p class="price">2 200 ₽</p>
+      <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>2 госномера без флага</h3>
+      <p class="price">2 900 ₽</p>
+      <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
+    </div>
+
+    <!-- Жирные -->
+    <div class="card">
+      <h3>Жирные номера (1 шт)</h3>
+      <p class="price">2 500 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
     </div>
 
     <div class="card">
@@ -151,6 +212,7 @@
     * Для дистанционного заказа отправьте в Telegram фото СТС/ПТС и паспорта или прав.
   </p>
 </section>
+
 
 <!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ: оформление + чек + гарантия + документы ===== -->
 <section id="legal">
