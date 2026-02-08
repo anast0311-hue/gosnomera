@@ -301,3 +301,13 @@ body {
 .hero-list li {
   margin-bottom: 6px;
 }
+/* Маркеры (точки) только для списка в Hero */
+#hero .hero-list {
+  list-style: disc;
+  padding-left: 22px;
+  margin-top: 14px;
+}
+
+#hero .hero-list li {
+  margin-bottom: 6px;
+}
