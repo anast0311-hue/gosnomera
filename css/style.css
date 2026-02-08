@@ -96,3 +96,8 @@ summary{cursor:pointer;font-weight:800}
 details p{margin-top:10px}
 
 footer{border-top:1px solid rgba(255,255,255,.10);padding-top:28px;padding-bottom:40px;color:var(--muted);font-size:14px}
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
