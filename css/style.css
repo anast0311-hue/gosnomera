@@ -291,3 +291,13 @@ footer{
 body {
   padding-bottom: 80px;
 }
+/* Маркеры в главном экране */
+.hero-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.hero-list li {
+  margin-bottom: 6px;
+}
