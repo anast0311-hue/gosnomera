@@ -311,3 +311,22 @@ body {
 #hero .hero-list li {
   margin-bottom: 6px;
 }
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.card{
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.price{
+  font-size: 24px;
+  font-weight: 700;
+  margin: 10px 0 14px;
+}
