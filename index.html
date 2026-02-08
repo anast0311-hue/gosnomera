@@ -53,6 +53,7 @@
       opacity: 1;
     }
 
+    /* Чтобы якоря не прятались под шапкой */
     section{ scroll-margin-top: 70px; }
   </style>
 </head>
@@ -83,10 +84,11 @@
     <a class="btn secondary" href="https://t.me/alikanto" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
 
+  <!-- ВАЖНО: здесь только "быстро + удобно + сейчас", без чеков/гарантии/типов -->
   <ul>
     <li>Готовность обычно 5–10 минут</li>
-    <li>Дистанционный заказ в Telegram</li>
-    <li>Принимаются при регистрационных действиях</li>
+    <li>Можно заказать дистанционно через Telegram</li>
+    <li>Подходит для срочной регистрации</li>
   </ul>
 </section>
 
@@ -94,14 +96,15 @@
 <section id="about">
   <h2>Законно и по ГОСТ</h2>
   <p>
-    Изготавливаем регистрационные знаки по ГОСТ на сертифицированных заготовках.
-    Соблюдаем формат, размеры, шрифт и светоотражающий слой.
+    Изготавливаем регистрационные знаки в соответствии с требованиями ГОСТ.
+    Используем сертифицированные заготовки и соблюдаем формат, шрифт и отражающий слой.
   </p>
 
+  <!-- ВАЖНО: здесь только "соответствие/материалы", без скорости/чеков -->
   <ul>
+    <li>Изготовление строго по требованиям ГОСТ</li>
     <li>Сертифицированные заготовки</li>
-    <li>Светоотражающая основа по ГОСТ</li>
-    <li>Чёткая читаемость и стойкость покрытия</li>
+    <li>Чёткая читаемость и светоотражающий слой</li>
   </ul>
 </section>
 
@@ -122,10 +125,29 @@
   <p>Выберите вариант и нажмите «Заказать» — откроется Telegram.</p>
 
   <div class="cards">
-    <div class="card"><h3>1 госномер</h3><p class="price">2 200 ₽</p><button class="btn primary" onclick="tgOrder('1 госномер', '2 200 ₽')">Заказать</button></div>
-    <div class="card"><h3>2 госномера</h3><p class="price">2 900 ₽</p><button class="btn primary" onclick="tgOrder('2 госномера', '2 900 ₽')">Заказать</button></div>
-    <div class="card"><h3>Квадратный номер</h3><p class="price">2 200 ₽</p><button class="btn primary" onclick="tgOrder('Квадратный номер', '2 200 ₽')">Заказать</button></div>
-    <div class="card"><h3>Жирные номера (2 шт)</h3><p class="price">3 500 ₽</p><button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button></div>
+    <div class="card">
+      <h3>1 госномер</h3>
+      <p class="price">2 200 ₽</p>
+      <button class="btn primary" onclick="tgOrder('1 госномер', '2 200 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>2 госномера</h3>
+      <p class="price">2 900 ₽</p>
+      <button class="btn primary" onclick="tgOrder('2 госномера', '2 900 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>Квадратный номер</h3>
+      <p class="price">2 200 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Квадратный номер', '2 200 ₽')">Заказать</button>
+    </div>
+
+    <div class="card">
+      <h3>Жирные номера (2 шт)</h3>
+      <p class="price">3 500 ₽</p>
+      <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
+    </div>
   </div>
 
   <p style="margin-top:12px; opacity:.85;">
@@ -204,5 +226,3 @@
 
 </body>
 </html>
-
-
