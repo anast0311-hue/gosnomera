@@ -255,6 +255,20 @@
     window.open(url, "_blank");
   }
 </script>
+<a href="https://t.me/alikanto"
+   class="tg-float"
+   target="_blank"
+   rel="noopener">
+  Написать в Telegram
+</a>
 
+<script>
+  const TG_USERNAME = "alikanto";
+  function tgOrder(product, price){
+    const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}. Документы могу отправить в чат.`;
+    const url = `https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  }
+</script>
 </body>
 </html>
