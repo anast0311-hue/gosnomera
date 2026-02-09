@@ -35,6 +35,27 @@
       font-weight: 700;
       white-space: nowrap;
     }
+    .topbar .right{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .topbar .phone{
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: .95;
+      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+    .topbar .phone:hover{
+      background: rgba(255,255,255,.10);
+    }
     .topbar nav{
       display: flex;
       gap: 14px;
@@ -54,7 +75,30 @@
     }
 
     /* Чтобы якоря не прятались под шапкой */
-    section{ scroll-margin-top: 70px; }
+    section{ scroll-margin-top: 80px; }
+
+    /* На случай, если в style.css где-то убили маркеры списков */
+    .dot-list{
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .dot-list li{ margin: 8px 0; }
+
+    /* Галерея документов */
+    .legal-gallery{
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .legal-gallery img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
   </style>
 </head>
 
@@ -63,31 +107,35 @@
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="#hero">ГОСНОМЕРА</a>
-    <nav>
-      <a href="#catalog">Каталог</a>
-      <a href="#process">Как мы работаем</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+
+    <div class="right">
+      <!-- Телефон в шапке -->
+      <a class="phone" href="tel:+79024314930">+7 902 431-49-30</a>
+
+      <nav>
+        <a href="#catalog">Каталог</a>
+        <a href="#process">Как мы работаем</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
   </div>
 </header>
 
-<!-- ===== HERO: быстро + удалённо ===== -->
+<!-- ===== HERO ===== -->
 <section id="hero">
   <h1>Изготовление автомобильных номеров по ГОСТ</h1>
- 
 
   <div class="actions">
     <a class="btn primary" href="#catalog">Выбрать номер</a>
     <a class="btn secondary" href="https://t.me/alikanto" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
 
-  <!-- ВАЖНО: здесь только "быстро + удобно + сейчас", без чеков/гарантии/типов -->
-  <ul class="hero-list">
-  <li>Время изготовления обычно составляет 10–15 минут</li>
-  <li>Примут в ГИБДД и на техосмотре</li>
-  <li>Все типы номеров: стандарт/квадрат/мото/прицеп</li>
-</ul>
-
+  <!-- Главные выгоды (без “мелочей”) -->
+  <ul class="dot-list hero-list">
+    <li>Время изготовления обычно составляет 10–15 минут</li>
+    <li>Примут в ГИБДД и на техосмотре</li>
+    <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
+  </ul>
 </section>
 
 <!-- ===== ЗАКОННО и по ГОСТ: материалы + соответствие ===== -->
@@ -95,15 +143,15 @@
   <h2>Законно и по ГОСТ</h2>
   <p>
     Делаем номера на сертифицированных заготовках: формат, шрифт и отражающий слой — по ГОСТ.
+    Это влияет на читаемость, светоотражение и “человеческий” вид номера.
   </p>
 
-  <ul>
+  <ul class="dot-list">
     <li>Сертифицированные заготовки</li>
     <li>Правильный формат и шрифт</li>
     <li>Светоотражающий слой и стойкое покрытие</li>
   </ul>
 </section>
-
 
 <!-- ===== КАК МЫ РАБОТАЕМ ===== -->
 <section id="process">
@@ -116,7 +164,6 @@
   </ol>
 </section>
 
-<!-- ===== КАТАЛОГ ===== -->
 <!-- ===== КАТАЛОГ ===== -->
 <section id="catalog">
   <h2>Каталог номеров</h2>
@@ -213,8 +260,7 @@
   </p>
 </section>
 
-
-<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ: оформление + чек + гарантия + документы ===== -->
+<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ ===== -->
 <section id="legal">
   <h2>Юридическая информация</h2>
 
@@ -224,17 +270,28 @@
   </p>
 
   <p>
-    Подтверждающие документы и реквизиты организации размещены ниже.
-    При необходимости предоставим информацию по запросу в Telegram.
+    Подтверждающие документы и реквизиты организации — ниже.
   </p>
 
-  <p><strong>Документы и реквизиты — ниже на странице.</strong></p>
+  <!-- 3 КАРТИНКИ СО СВИДЕТЕЛЬСТВАМИ
+       1) Положи изображения в папку /img
+       2) Назови их как ниже (или поменяй src на свои названия)
+  -->
+  <div class="legal-gallery">
+    <img src="img/svidetelstvo-1.jpg" alt="Свидетельство 1">
+    <img src="img/svidetelstvo-2.jpg" alt="Свидетельство 2">
+    <img src="img/svidetelstvo-3.jpg" alt="Свидетельство 3">
+  </div>
+
+  <p style="margin-top:10px; opacity:.9;">
+    Реквизиты: ООО «АЛИКАНТО» · ИНН 1224005173 · ОГРН 1181215000328
+  </p>
 </section>
 
 <!-- ===== УДОБСТВО ===== -->
 <section id="comfort">
   <h2>Для вашего удобства</h2>
-  <ul>
+  <ul class="dot-list">
     <li>Удобная парковка</li>
     <li>Оплата наличными и по карте</li>
     <li>Бесплатный Wi-Fi</li>
@@ -246,23 +303,31 @@
 <section id="faq">
   <h2>Частые вопросы</h2>
 
-  <h3>Можно заказать дистанционно?</h3>
+  <h3>Это законно?</h3>
+  <p>Да. Мы работаем по ГОСТ и используем сертифицированные заготовки.</p>
+
+  <h3>Примут ли номер в ГИБДД?</h3>
+  <p>Да. Номера принимаются при проверках и регистрационных действиях.</p>
+
+  <h3>Можно ли заказать дистанционно?</h3>
   <p>Да. Отправьте фото документов в Telegram, подтвердим заказ и изготовим номер.</p>
 
-  <h3>Сколько времени занимает изготовление?</h3>
-  <p>Обычно 10–15 минут после подтверждения данных.</p>
+  <h3>Как долго делается номер?</h3>
+  <p>Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</p>
 
-  <h3>Выдаёте чек и есть гарантия?</h3>
-  <p>Да. Оформляем заказ официально, выдаём чек ККТ и предоставляем гарантию 12 месяцев.</p>
+  <h3>Какая гарантия?</h3>
+  <p>Гарантия 12 месяцев. При дефекте заменим бесплатно.</p>
+
+  <h3>Выдаёте чек?</h3>
+  <p>Да. Оформляем заказ официально и выдаём чек ККТ.</p>
 </section>
 
 <!-- ===== КОНТАКТЫ ===== -->
 <section id="contacts">
   <h2>Контакты</h2>
-  <p><strong>Телефон:</strong> +7 902 431-49-30</p>
+  <p><strong>Телефон:</strong> <a href="tel:+79024314930">+7 902 431-49-30</a></p>
   <p><strong>Адрес:</strong> Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22</p>
-  <p><strong>Telegram:</strong> <a href="https://t.me/alikanto" target="_blank" rel="noopener">написать</a></p>
-  <p><strong>Email:</strong> alikanto_00@mail.ru</p>
+  <p><strong>Email:</strong> <a href="mailto:alikanto_00@mail.ru">alikanto_00@mail.ru</a></p>
 </section>
 
 <footer>
@@ -285,3 +350,5 @@
 
 </body>
 </html>
+
+
