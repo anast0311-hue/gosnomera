@@ -330,3 +330,15 @@ body {
   font-weight: 700;
   margin: 10px 0 14px;
 }
+.docs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.docs img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
