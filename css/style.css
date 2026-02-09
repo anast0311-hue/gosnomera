@@ -342,3 +342,20 @@ body {
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.15);
 }
+.docs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.docs img {
+  max-width: 220px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.docs img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,.4);
+}
