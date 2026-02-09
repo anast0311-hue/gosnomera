@@ -359,3 +359,34 @@ body {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0,0,0,.4);
 }
+#legal {
+  margin-top: 60px;
+}
+
+.legal-note {
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+
+.call-btn {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.docs {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.docs img {
+  max-width: 220px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.docs img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,.4);
+}
