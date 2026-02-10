@@ -144,7 +144,7 @@
       transform-origin: center;
     }
     .legal-gallery img:hover{
-      transform: scale(1.18); /* заметно сильнее, чем раньше */
+      transform: scale(1.18);
       box-shadow: 0 18px 40px rgba(0,0,0,.45);
       z-index: 2;
     }
@@ -206,7 +206,6 @@
     <a class="brand" href="#hero">ГОСНОМЕРА</a>
 
     <div class="right">
-      <!-- Телефон в шапке (текст, не кнопка) -->
       <a class="phone" href="tel:+79024314930">+7 902 431-49-30</a>
 
       <nav>
@@ -218,7 +217,7 @@
   </div>
 </header>
 
-<!-- ===== HERO (Telegram убран, телефон текстом) ===== -->
+<!-- ===== HERO ===== -->
 <section id="hero">
   <h1>Изготовление автомобильных номеров по ГОСТ</h1>
 
@@ -229,14 +228,15 @@
 
   <div class="actions">
     <a class="btn primary" href="#catalog">Выбрать номер</a>
+  </div>
 
+  <!-- Согласие рядом с действием -->
   <p class="consent-text">
     Нажимая кнопку, вы соглашаетесь с
-    <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>
+    <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
     и
-    <a href="consent.html" target="_blank">обработкой персональных данных</a>
+    <a href="consent.html" target="_blank" rel="noopener">обработкой персональных данных</a>
   </p>
-  </div>
 
   <ul class="dot-list hero-list">
     <li>Время изготовления обычно составляет 10–15 минут</li>
@@ -271,7 +271,7 @@
   </ol>
 </section>
 
-<!-- ===== КАТАЛОГ (упорядочен + без Telegram-текста + без прицепа 2 шт) ===== -->
+<!-- ===== КАТАЛОГ ===== -->
 <section id="catalog">
   <h2>Каталог номеров</h2>
   <p>Выберите нужный вариант и нажмите «Заказать».</p>
@@ -377,9 +377,17 @@
       </div>
     </div>
   </details>
+
+  <!-- Согласие рядом с действием -->
+  <p class="consent-text">
+    Нажимая кнопку «Заказать», вы соглашаетесь с
+    <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
+    и
+    <a href="consent.html" target="_blank" rel="noopener">обработкой персональных данных</a>
+  </p>
 </section>
 
-<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ (без CTA-кнопки) ===== -->
+<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ ===== -->
 <section id="legal">
   <h2>Юридическая информация</h2>
 
@@ -399,7 +407,7 @@
   </div>
 </section>
 
-<!-- ===== УДОБСТВО (с точками) ===== -->
+<!-- ===== УДОБСТВО ===== -->
 <section id="comfort">
   <h2>Для вашего удобства</h2>
   <ul class="dot-list">
@@ -410,7 +418,7 @@
   </ul>
 </section>
 
-<!-- ===== FAQ (обновлён без Telegram-инструкций/документов) ===== -->
+<!-- ===== FAQ ===== -->
 <section id="faq">
   <h2>Частые вопросы</h2>
 
@@ -430,7 +438,7 @@
   <p>Да. Оформляем заказ официально и выдаём чек ККТ.</p>
 </section>
 
-<!-- ===== КОНТАКТЫ (без Telegram) ===== -->
+<!-- ===== КОНТАКТЫ ===== -->
 <section id="contacts">
   <h2>Контакты</h2>
   <p><strong>Телефон:</strong> <a href="tel:+79024314930">+7 902 431-49-30</a></p>
@@ -444,7 +452,7 @@
   <p>© Все права защищены</p>
 </footer>
 
-<!-- Плавающая кнопка (Telegram остаётся как доп.канал, username обновлён) -->
+<!-- Плавающая кнопка Telegram (как доп.канал) -->
 <a href="https://t.me/alikanto12" class="tg-float btn primary" target="_blank" rel="noopener">
   Задать вопрос
 </a>
@@ -481,7 +489,6 @@
     document.body.style.overflow = '';
   }
 
-  // ESC закрывает модалку (на случай если кто-то умеет пользоваться клавиатурой)
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') closeDoc();
   });
