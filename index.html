@@ -352,6 +352,21 @@
 <div id="docModal" class="doc-modal" onclick="closeDoc()">
   <img id="docModalImg" src="" alt="Документ">
 </div>
+<script>
+  function openDoc(src) {
+    const modal = document.getElementById('docModal');
+    const img = document.getElementById('docModalImg');
+    img.src = src;
+    modal.style.display = 'flex';
+  }
+
+  function closeDoc() {
+    document.getElementById('docModal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
