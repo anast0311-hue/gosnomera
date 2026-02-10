@@ -42,20 +42,22 @@
       flex-wrap: wrap;
       justify-content: flex-end;
     }
+
+    /* Телефон в шапке — НЕ кнопка */
     .topbar .phone{
       color: #fff;
       text-decoration: none;
       font-weight: 600;
       opacity: .95;
       white-space: nowrap;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
+      padding: 0;
+      border: none;
+      background: transparent;
     }
     .topbar .phone:hover{
-      background: rgba(255,255,255,.10);
+      text-decoration: underline;
     }
+
     .topbar nav{
       display: flex;
       gap: 14px;
@@ -77,19 +79,58 @@
     /* Чтобы якоря не прятались под шапкой */
     section{ scroll-margin-top: 80px; }
 
-    /* На случай, если в style.css где-то убили маркеры списков */
+    /* Маркеры списков (точки) */
     .dot-list{
       list-style: disc;
       padding-left: 20px;
     }
     .dot-list li{ margin: 8px 0; }
 
-    /* Галерея документов */
+    /* HERO: телефон текстом */
+    .hero-phone{
+      margin: 10px 0 18px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .hero-phone a{
+      color: #fff;
+      text-decoration: none;
+      opacity: .98;
+      white-space: nowrap;
+    }
+    .hero-phone a:hover{ text-decoration: underline; }
+    .hero-phone .hint{
+      display:block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      opacity: .75;
+    }
+
+    /* Каталог: группировка */
+    .cat{
+      margin-top: 14px;
+    }
+    .cat summary{
+      cursor: pointer;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      list-style: none;
+      user-select: none;
+    }
+    .cat[open] summary{
+      margin-bottom: 12px;
+    }
+
+    /* Документы: превью + сильное увеличение */
     .legal-gallery{
       margin-top: 14px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
+      gap: 14px;
     }
     .legal-gallery img{
       width: 100%;
@@ -98,6 +139,62 @@
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
+      cursor: zoom-in;
+      transition: transform .18s ease, box-shadow .18s ease;
+      transform-origin: center;
+    }
+    .legal-gallery img:hover{
+      transform: scale(1.18); /* заметно сильнее, чем раньше */
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
+      z-index: 2;
+    }
+
+    /* Модалка для документов (крупно, читаемо) */
+    .doc-modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.88);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+    .doc-modal__content{
+      position:relative;
+      width: min(1100px, 96vw);
+      height: min(92vh, 900px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .doc-modal__content img{
+      max-width: 100%;
+      max-height: 100%;
+      width:auto;
+      height:auto;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      background: #111;
+    }
+    .doc-modal__close{
+      position:absolute;
+      top: -10px;
+      right: -10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 42px;
+      text-align:center;
+      background: rgba(255,255,255,.92);
+      color: #000;
+    }
+    .doc-modal__close:hover{
+      background:#fff;
     }
   </style>
 </head>
@@ -109,7 +206,7 @@
     <a class="brand" href="#hero">ГОСНОМЕРА</a>
 
     <div class="right">
-      <!-- Телефон в шапке -->
+      <!-- Телефон в шапке (текст, не кнопка) -->
       <a class="phone" href="tel:+79024314930">+7 902 431-49-30</a>
 
       <nav>
@@ -121,16 +218,19 @@
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO (Telegram убран, телефон текстом) ===== -->
 <section id="hero">
   <h1>Изготовление автомобильных номеров по ГОСТ</h1>
 
+  <p class="hero-phone">
+    <a href="tel:+79024314930">+7 902 431-49-30</a>
+    <span class="hint">Нажмите, чтобы позвонить</span>
+  </p>
+
   <div class="actions">
     <a class="btn primary" href="#catalog">Выбрать номер</a>
-    <a class="btn secondary" href="https://t.me/alikanto" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
 
-  <!-- Главные выгоды (без “мелочей”) -->
   <ul class="dot-list hero-list">
     <li>Время изготовления обычно составляет 10–15 минут</li>
     <li>Примут в ГИБДД и на техосмотре</li>
@@ -138,12 +238,12 @@
   </ul>
 </section>
 
-<!-- ===== ЗАКОННО и по ГОСТ: материалы + соответствие ===== -->
+<!-- ===== ЗАКОННО и по ГОСТ ===== -->
 <section id="about">
   <h2>Законно и по ГОСТ</h2>
   <p>
     Делаем номера на сертифицированных заготовках: формат, шрифт и отражающий слой — по ГОСТ.
-    Это влияет на читаемость, светоотражение и “человеческий” вид номера.
+    Это влияет на читаемость, светоотражение и внешний вид номера.
   </p>
 
   <ul class="dot-list">
@@ -153,114 +253,126 @@
   </ul>
 </section>
 
-<!-- ===== КАК МЫ РАБОТАЕМ ===== -->
+<!-- ===== КАК МЫ РАБОТАЕМ (без точек) ===== -->
 <section id="process">
   <h2>Как мы работаем</h2>
   <ol>
-    <li>Отправляете фото документов в Telegram (СТС или ПТС + паспорт или права).</li>
-    <li>Мы проверяем данные и подтверждаем заказ.</li>
-    <li>Изготавливаем номер за 10–15 минут.</li>
-    <li>Получаете номер в офисе или с доставкой.</li>
+    <li>Вы звоните и называете тип номера и количество</li>
+    <li>Мы уточняем данные и подтверждаем заказ</li>
+    <li>Изготавливаем номер за 10–15 минут</li>
+    <li>Вы получаете готовый номер в офисе или с доставкой</li>
   </ol>
 </section>
 
-<!-- ===== КАТАЛОГ ===== -->
+<!-- ===== КАТАЛОГ (упорядочен + без Telegram-текста + без прицепа 2 шт) ===== -->
 <section id="catalog">
   <h2>Каталог номеров</h2>
-  <p>Выберите вариант и нажмите «Заказать» — откроется Telegram с готовым текстом.</p>
+  <p>Выберите нужный вариант и нажмите «Заказать».</p>
 
-  <div class="cards">
-    <!-- Стандарт -->
-    <div class="card">
-      <h3>1 госномер на авто (стандарт)</h3>
-      <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('1 госномер на авто (стандарт)', '2 200 ₽')">Заказать</button>
+  <details open class="cat">
+    <summary>Стандартные номера</summary>
+    <div class="cards">
+      <div class="card">
+        <h3>1 госномер на авто (стандарт)</h3>
+        <p class="price">2 200 ₽</p>
+        <button class="btn primary" onclick="tgOrder('1 госномер на авто (стандарт)', '2 200 ₽')">Заказать</button>
+      </div>
+
+      <div class="card">
+        <h3>2 госномера на авто (стандарт)</h3>
+        <p class="price">2 900 ₽</p>
+        <button class="btn primary" onclick="tgOrder('2 госномера на авто (стандарт)', '2 900 ₽')">Заказать</button>
+      </div>
     </div>
+  </details>
 
-    <div class="card">
-      <h3>2 госномера на авто (стандарт)</h3>
-      <p class="price">2 900 ₽</p>
-      <button class="btn primary" onclick="tgOrder('2 госномера на авто (стандарт)', '2 900 ₽')">Заказать</button>
+  <details open class="cat">
+    <summary>Квадратные номера</summary>
+    <div class="cards">
+      <div class="card">
+        <h3>Квадратный номер на авто</h3>
+        <p class="price">2 200 ₽</p>
+        <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
+      </div>
+
+      <div class="card">
+        <h3>2 квадратных номера</h3>
+        <p class="price">3 900 ₽</p>
+        <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
+      </div>
+
+      <div class="card">
+        <h3>1 стандартный + 1 квадратный</h3>
+        <p class="price">3 400 ₽</p>
+        <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
+      </div>
     </div>
+  </details>
 
-    <!-- Квадрат -->
-    <div class="card">
-      <h3>Квадратный номер на авто</h3>
-      <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
+  <details class="cat">
+    <summary>Мотоциклы</summary>
+    <div class="cards">
+      <div class="card">
+        <h3>Номер на мото (стандарт)</h3>
+        <p class="price">2 200 ₽</p>
+        <button class="btn primary" onclick="tgOrder('Номер на мото (стандарт)', '2 200 ₽')">Заказать</button>
+      </div>
+
+      <div class="card">
+        <h3>Номер на мото (мини)</h3>
+        <p class="price">2 200 ₽</p>
+        <button class="btn primary" onclick="tgOrder('Номер на мото (мини)', '2 200 ₽')">Заказать</button>
+      </div>
     </div>
+  </details>
 
-    <div class="card">
-      <h3>2 квадратных номера</h3>
-      <p class="price">3 900 ₽</p>
-      <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
+  <details class="cat">
+    <summary>Прицепы</summary>
+    <div class="cards">
+      <div class="card">
+        <h3>Номер на прицеп (1 шт)</h3>
+        <p class="price">2 200 ₽</p>
+        <button class="btn primary" onclick="tgOrder('Номер на прицеп (1 шт)', '2 200 ₽')">Заказать</button>
+      </div>
     </div>
+  </details>
 
-    <div class="card">
-      <h3>1 стандартный + 1 квадратный</h3>
-      <p class="price">3 400 ₽</p>
-      <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
+  <details class="cat">
+    <summary>Без флага</summary>
+    <div class="cards">
+      <div class="card">
+        <h3>1 госномер без флага</h3>
+        <p class="price">2 200 ₽</p>
+        <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
+      </div>
+
+      <div class="card">
+        <h3>2 госномера без флага</h3>
+        <p class="price">2 900 ₽</p>
+        <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
+      </div>
     </div>
+  </details>
 
-    <!-- Мото -->
-    <div class="card">
-      <h3>Номер на мото (стандарт)</h3>
-      <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Номер на мото (стандарт)', '2 200 ₽')">Заказать</button>
+  <details class="cat">
+    <summary>Жирные номера</summary>
+    <div class="cards">
+      <div class="card">
+        <h3>Жирные номера (1 шт)</h3>
+        <p class="price">2 500 ₽</p>
+        <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
+      </div>
+
+      <div class="card">
+        <h3>Жирные номера (2 шт)</h3>
+        <p class="price">3 500 ₽</p>
+        <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>Номер на мото (мини)</h3>
-      <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Номер на мото (мини)', '2 200 ₽')">Заказать</button>
-    </div>
-
-    <!-- Прицеп -->
-    <div class="card">
-      <h3>Номер на прицеп (1 шт)</h3>
-      <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Номер на прицеп (1 шт)', '2 200 ₽')">Заказать</button>
-    </div>
-
-    <div class="card">
-      <h3>Номер на прицеп (2 шт)</h3>
-      <p class="price">2 900 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Номер на прицеп (2 шт)', '2 900 ₽')">Заказать</button>
-    </div>
-
-    <!-- Без флага -->
-    <div class="card">
-      <h3>1 госномер без флага</h3>
-      <p class="price">2 200 ₽</p>
-      <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
-    </div>
-
-    <div class="card">
-      <h3>2 госномера без флага</h3>
-      <p class="price">2 900 ₽</p>
-      <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
-    </div>
-
-    <!-- Жирные -->
-    <div class="card">
-      <h3>Жирные номера (1 шт)</h3>
-      <p class="price">2 500 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
-    </div>
-
-    <div class="card">
-      <h3>Жирные номера (2 шт)</h3>
-      <p class="price">3 500 ₽</p>
-      <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
-    </div>
-  </div>
-
-  <p style="margin-top:12px; opacity:.85;">
-    * Для дистанционного заказа отправьте в Telegram фото СТС/ПТС и паспорта или прав.
-  </p>
+  </details>
 </section>
 
-<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ ===== -->
+<!-- ===== ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ (без CTA-кнопки) ===== -->
 <section id="legal">
   <h2>Юридическая информация</h2>
 
@@ -270,26 +382,17 @@
   </p>
 
   <p class="legal-note">
-    Подтверждающие документы и реквизиты организации размещены ниже.<br>
-    При необходимости предоставим дополнительную информацию по телефону.
+    Подтверждающие документы и реквизиты организации размещены ниже.
   </p>
 
-  <a href="tel:+79024314930" class="btn primary call-btn">
-    Позвонить
-  </a>
-
-  <div class="docs">
-    <div class="docs">
-  <img src="image/svidetelstvo-1.jpg" alt="Свидетельство 1" onclick="openDoc(this.src)">
-  <img src="image/svidetelstvo-2.jpg" alt="Свидетельство 2" onclick="openDoc(this.src)">
-  <img src="image/svidetelstvo-3.jpg" alt="Свидетельство 3" onclick="openDoc(this.src)">
-</div>
-
+  <div class="legal-gallery">
+    <img src="image/svidetelstvo-1.jpg" alt="Свидетельство 1" onclick="openDoc(this.src)">
+    <img src="image/svidetelstvo-2.jpg" alt="Свидетельство 2" onclick="openDoc(this.src)">
+    <img src="image/svidetelstvo-3.jpg" alt="Свидетельство 3" onclick="openDoc(this.src)">
   </div>
-
 </section>
 
-<!-- ===== УДОБСТВО ===== -->
+<!-- ===== УДОБСТВО (с точками) ===== -->
 <section id="comfort">
   <h2>Для вашего удобства</h2>
   <ul class="dot-list">
@@ -300,7 +403,7 @@
   </ul>
 </section>
 
-<!-- ===== FAQ ===== -->
+<!-- ===== FAQ (обновлён без Telegram-инструкций/документов) ===== -->
 <section id="faq">
   <h2>Частые вопросы</h2>
 
@@ -309,9 +412,6 @@
 
   <h3>Примут ли номер в ГИБДД?</h3>
   <p>Да. Номера принимаются при проверках и регистрационных действиях.</p>
-
-  <h3>Можно ли заказать дистанционно?</h3>
-  <p>Да. Отправьте фото документов в Telegram, подтвердим заказ и изготовим номер.</p>
 
   <h3>Как долго делается номер?</h3>
   <p>Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</p>
@@ -323,7 +423,7 @@
   <p>Да. Оформляем заказ официально и выдаём чек ККТ.</p>
 </section>
 
-<!-- ===== КОНТАКТЫ ===== -->
+<!-- ===== КОНТАКТЫ (без Telegram) ===== -->
 <section id="contacts">
   <h2>Контакты</h2>
   <p><strong>Телефон:</strong> <a href="tel:+79024314930">+7 902 431-49-30</a></p>
@@ -337,38 +437,48 @@
   <p>© Все права защищены</p>
 </footer>
 
-<!-- ===== ПЛАВАЮЩАЯ КНОПКА TELEGRAM ===== -->
-<a href="https://t.me/alikanto" class="tg-float btn primary" target="_blank" rel="noopener">
-  Задать вопрос в Telegram
+<!-- Плавающая кнопка (Telegram остаётся как доп.канал, username обновлён) -->
+<a href="https://t.me/alikanto12" class="tg-float btn primary" target="_blank" rel="noopener">
+  Задать вопрос
 </a>
 
 <script>
+  const TG_USERNAME = "alikanto12"; // без @
+
   function tgOrder(product, price){
     const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}.`;
-    window.open(`https://t.me/alikanto?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`, '_blank');
   }
 </script>
+
 <!-- Модальное окно для документов -->
 <div id="docModal" class="doc-modal" onclick="closeDoc()">
-  <img id="docModalImg" src="" alt="Документ">
+  <div class="doc-modal__content" onclick="event.stopPropagation()">
+    <button class="doc-modal__close" onclick="closeDoc()">×</button>
+    <img id="docModalImg" src="" alt="Документ">
+  </div>
 </div>
+
 <script>
   function openDoc(src) {
     const modal = document.getElementById('docModal');
     const img = document.getElementById('docModalImg');
     img.src = src;
     modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
 
   function closeDoc() {
-    document.getElementById('docModal').style.display = 'none';
+    const modal = document.getElementById('docModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
   }
+
+  // ESC закрывает модалку (на случай если кто-то умеет пользоваться клавиатурой)
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeDoc();
+  });
 </script>
 
 </body>
 </html>
-
-</body>
-</html>
-
-
