@@ -10,21 +10,21 @@
   --accent2:#12b886;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{ scroll-behavior:smooth; }
 
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:radial-gradient(1200px 600px at 20% 10%, rgba(91,124,255,.18), transparent 60%),
-             radial-gradient(900px 500px at 80% 20%, rgba(18,184,134,.14), transparent 55%),
-             var(--bg);
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(91,124,255,.18), transparent 60%),
+    radial-gradient(900px 500px at 80% 20%, rgba(18,184,134,.14), transparent 55%),
+    var(--bg);
   color:var(--text);
   line-height:1.5;
+  padding-bottom:90px; /* чтобы фикс-кнопка не перекрывала низ */
 }
 
-/* ====== TOPBAR (шапка с якорями) ====== */
+/* ===== ШАПКА (совпадает с HTML: .right + nav) ===== */
 .topbar{
   position:sticky;
   top:0;
@@ -35,7 +35,7 @@ body{
 }
 
 .topbar .wrap{
-  max-width:1040px;
+  max-width:1100px;
   margin:0 auto;
   padding:12px 20px;
   display:flex;
@@ -53,14 +53,32 @@ body{
   opacity:.95;
 }
 
-.topbar .menu{
+.topbar .right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* телефон в шапке НЕ кнопка */
+.topbar .phone{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
+  opacity:.95;
+  white-space:nowrap;
+}
+.topbar .phone:hover{ text-decoration:underline; }
+
+.topbar nav{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
   justify-content:flex-end;
 }
 
-.topbar .menu a{
+.topbar nav a{
   color:var(--text);
   text-decoration:none;
   opacity:.9;
@@ -71,26 +89,23 @@ body{
   border:1px solid transparent;
 }
 
-.topbar .menu a:hover{
+.topbar nav a:hover{
   opacity:1;
   background:rgba(255,255,255,.06);
   border-color:rgba(255,255,255,.10);
 }
 
-/* чтобы при клике на якорь секция не пряталась под шапкой */
-section{
-  scroll-margin-top:80px;
-}
+/* чтобы якоря не прятались под шапкой */
+section{ scroll-margin-top:80px; }
 
-/* ====== БАЗОВАЯ ВЁРСТКА СЕКЦИЙ ====== */
+/* ===== СЕКЦИИ: центрирование страницы ===== */
 section, footer{
-  max-width:1040px;
+  max-width:1100px;
   margin:0 auto;
   padding:56px 20px;
   border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* hero немного выше, чтобы красиво смотрелось под шапкой */
 #hero{
   border-top:none;
   padding-top:72px;
@@ -120,23 +135,30 @@ ul,ol{
   color:var(--muted);
 }
 
-li{
-  margin:8px 0;
-}
+li{ margin:8px 0; }
 
-/* ====== УБИРАЕМ ТОЧКИ У UL (глобально) ====== */
-ul{
-  list-style:none;
-  padding-left:0;
-  margin-left:0;
-}
-
-/* ====== КНОПКИ ====== */
+/* ===== КНОПКИ ===== */
 .actions{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
   margin:16px 0 10px;
+  align-items:flex-start;
+}
+
+/* ВАЖНО: текст согласия переносим на новую строку под кнопкой */
+.actions .consent-text{
+  flex-basis:100%;
+  margin:0;
+  font-size:12px;
+  line-height:1.35;
+  opacity:.75;
+  max-width:75ch;
+}
+
+.actions .consent-text a{
+  color:#8ab4ff;
+  text-decoration:underline;
 }
 
 .btn, button{
@@ -151,7 +173,7 @@ ul{
   padding:12px 16px;
   border-radius:12px;
   cursor:pointer;
-  font-weight:700;
+  font-weight:800;
   text-decoration:none;
   transition:transform .08s ease, filter .2s ease, border-color .2s ease;
 }
@@ -161,9 +183,7 @@ ul{
   border-color:rgba(255,255,255,.22);
 }
 
-.btn:active, button:active{
-  transform:translateY(1px);
-}
+.btn:active, button:active{ transform:translateY(1px); }
 
 .btn.primary{
   background:linear-gradient(135deg, rgba(91,124,255,.92), rgba(91,124,255,.55));
@@ -175,19 +195,27 @@ ul{
   border-color:rgba(18,184,134,.55);
 }
 
-/* ====== КАТАЛОГ ====== */
+/* ===== HERO: список с маркерами ===== */
+#hero .hero-list{
+  list-style:disc;
+  padding-left:22px;
+  margin-top:14px;
+}
+#hero .hero-list li{ margin:6px 0; }
+
+/* ===== КАТАЛОГ ===== */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-  gap:14px;
-  margin-top:14px;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
+  margin-top:16px;
 }
 
 .card{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
+  padding:18px;
   border-radius:16px;
-  padding:16px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
 }
 
 .card h3{
@@ -196,50 +224,86 @@ ul{
 }
 
 .price{
+  font-size:24px;
+  font-weight:800;
   margin:10px 0 14px;
-  font-size:20px;
-  font-weight:900;
   color:var(--text);
 }
 
-/* ====== СЕРТИФИКАТЫ (если добавишь фото) ====== */
-.certs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:12px;
-  margin-top:14px;
+/* ===== ДОКУМЕНТЫ (превью) ===== */
+.docs{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
 
-.certs img{
+.docs img{
+  max-width:240px;
   width:100%;
   height:auto;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.02);
-}
-
-/* ====== FAQ (если когда-то перейдёшь на details/summary) ====== */
-details{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:12px 14px;
-}
-
-details + details{
-  margin-top:10px;
-}
-
-summary{
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.15);
   cursor:pointer;
-  font-weight:800;
+  transition:transform .18s ease, box-shadow .18s ease;
 }
 
-details p{
-  margin-top:10px;
+.docs img:hover{
+  transform:scale(1.08);
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
 }
 
-/* ====== ФУТЕР ====== */
+/* ===== МОДАЛКА ДОКУМЕНТОВ ===== */
+.doc-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:rgba(0,0,0,.88);
+  justify-content:center;
+  align-items:center;
+  padding:18px;
+  cursor:zoom-out;
+}
+
+.doc-modal__content{
+  position:relative;
+  width:min(1100px, 96vw);
+  height:min(92vh, 900px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:auto;
+}
+
+.doc-modal__content img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  background:#111;
+}
+
+.doc-modal__close{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-size:24px;
+  line-height:42px;
+  text-align:center;
+  background:rgba(255,255,255,.92);
+  color:#000;
+}
+
+.doc-modal__close:hover{ background:#fff; }
+
+/* ===== ФУТЕР ===== */
 footer{
   border-top:1px solid rgba(255,255,255,.10);
   padding-top:28px;
@@ -248,193 +312,27 @@ footer{
   font-size:14px;
 }
 
-/* ====== ПЛАВАЮЩАЯ КНОПКА TELEGRAM ====== */
+/* ===== ПЛАВАЮЩАЯ КНОПКА (оставляю как “Задать вопрос”) ===== */
 .tg-float{
   position:fixed;
-  right:16px;
+  left:16px;
   bottom:16px;
   z-index:1000;
+
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:12px 14px;
-  border-radius:999px;
-  border:1px solid rgba(18,184,134,.55);
-  background:linear-gradient(135deg, rgba(18,184,134,.85), rgba(18,184,134,.55));
-  color:var(--text);
-  font-weight:800;
+
+  padding:12px 16px;
+  border-radius:14px;
   text-decoration:none;
+  white-space:nowrap;
+
+  border:1px solid rgba(91,124,255,.65);
+  background:linear-gradient(135deg, rgba(91,124,255,.92), rgba(91,124,255,.55));
+  color:var(--text);
+  font-weight:900;
   box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-.tg-float:hover{
-  filter:brightness(1.06);
-}
-/* Плавающая кнопка Telegram */
-.tg-float {
-  position: fixed;
-  left: 16px;
-  bottom: 16px;
-  z-index: 9999;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 12px 16px;
-  border-radius: 14px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* Чтобы не налезала на контент внизу страницы */
-body {
-  padding-bottom: 80px;
-}
-/* Маркеры в главном экране */
-.hero-list {
-  list-style: disc;
-  padding-left: 20px;
-  margin-top: 16px;
-}
-
-.hero-list li {
-  margin-bottom: 6px;
-}
-/* Маркеры (точки) только для списка в Hero */
-#hero .hero-list {
-  list-style: disc;
-  padding-left: 22px;
-  margin-top: 14px;
-}
-
-#hero .hero-list li {
-  margin-bottom: 6px;
-}
-.cards{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 16px;
-}
-
-.card{
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-}
-
-.price{
-  font-size: 24px;
-  font-weight: 700;
-  margin: 10px 0 14px;
-}
-.docs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.docs img {
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.15);
-}
-.docs {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.docs img {
-  max-width: 220px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.docs img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,.4);
-}
-#legal {
-  margin-top: 60px;
-}
-
-.legal-note {
-  opacity: 0.85;
-  margin-bottom: 16px;
-}
-
-.call-btn {
-  display: inline-block;
-  margin-bottom: 24px;
-}
-
-.docs {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.docs img {
-  max-width: 220px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.docs img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,.4);
-}
-/* Модальное окно */
-.doc-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
-}
-
-.doc-modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-}
-.consent-text {
-  margin-top: 10px;
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 0.75;
-}
-
-.consent-text a {
-  color: #8ab4ff;
-  text-decoration: underline;
-}
-.hero-actions{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:10px;
-  max-width:520px;
-}
-
-.hero-consent{
-  margin:0;
-  font-size:12px;
-  line-height:1.35;
-  opacity:.75;
-  max-width:520px;
-}
-
-.hero-consent a{
-  text-decoration:underline;
-}
+.tg-float:hover{ filter:brightness(1.06); }
