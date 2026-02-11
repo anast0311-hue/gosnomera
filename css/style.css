@@ -1,4 +1,4 @@
-*{box-sizing:border-box}
+* { box-sizing: border-box; }
 
 :root{
   --bg:#0b1220;
@@ -24,7 +24,7 @@ body{
   padding-bottom:90px; /* чтобы фикс-кнопка не перекрывала низ */
 }
 
-/* ===== ШАПКА (совпадает с HTML: .right + nav) ===== */
+/* ===== ШАПКА ===== */
 .topbar{
   position:sticky;
   top:0;
@@ -35,8 +35,8 @@ body{
 }
 
 .topbar .wrap{
-  max-width:1100px;
-  margin:0 auto;
+  width: min(1100px, 100%);
+  margin-inline:auto;
   padding:12px 20px;
   display:flex;
   align-items:center;
@@ -100,8 +100,8 @@ section{ scroll-margin-top:80px; }
 
 /* ===== СЕКЦИИ: центрирование страницы ===== */
 section, footer{
-  max-width:1100px;
-  margin:0 auto;
+  width: min(1100px, 100%);
+  margin-inline:auto;
   padding:56px 20px;
   border-top:1px solid rgba(255,255,255,.08);
 }
@@ -146,7 +146,7 @@ li{ margin:8px 0; }
   align-items:flex-start;
 }
 
-/* ВАЖНО: текст согласия переносим на новую строку под кнопкой */
+/* текст согласия под кнопкой */
 .actions .consent-text{
   flex-basis:100%;
   margin:0;
@@ -312,7 +312,7 @@ footer{
   font-size:14px;
 }
 
-/* ===== ПЛАВАЮЩАЯ КНОПКА (оставляю как “Задать вопрос”) ===== */
+/* ===== ПЛАВАЮЩАЯ КНОПКА ===== */
 .tg-float{
   position:fixed;
   left:16px;
@@ -336,22 +336,3 @@ footer{
 }
 
 .tg-float:hover{ filter:brightness(1.06); }
-/* Центрируем весь контент сайта */
-section, footer {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-/* Чтобы фон/градиент остался на всю ширину */
-body {
-  margin: 0;
-}
-
-/* На всякий случай: блочные элементы не должны разъезжаться */
-#hero, #about, #process, #catalog, #legal, #comfort, #faq, #contacts {
-  width: 100%;
-}
-
