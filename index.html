@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Изготовление автомобильных номеров по ГОСТ</title>
 
-  <!-- Стили -->
-  <link rel="stylesheet" href="css/style.css?v=20260211-3">
+  <!-- Основные стили (антикэш) -->
+  <link rel="stylesheet" href="css/style.css?v=20260211-4">
 
   <style>
     html { scroll-behavior: smooth; }
-    html, body { margin:0; padding:0; overflow-x:hidden; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
 
-    /* Контейнер центра */
+    /* НОРМАЛЬНЫЙ ЦЕНТР */
     .container{
-      width: min(1100px, 100%);
+      max-width: 1200px; /* чуть шире, чтобы не казалось "урезанным" */
       margin: 0 auto;
       padding: 0 20px;
       box-sizing: border-box;
     }
 
-    section{ scroll-margin-top:80px; }
+    /* Чтобы якоря не прятались под шапкой */
+    section { scroll-margin-top: 80px; }
 
-    /* ===== ШАПКА ===== */
+    /* ШАПКА */
     .topbar{
       position: sticky;
       top: 0;
@@ -30,142 +31,158 @@
       backdrop-filter: blur(8px);
       background: rgba(0,0,0,.35);
       border-bottom: 1px solid rgba(255,255,255,.08);
-      width:100%;
+      width: 100%;
     }
-
     .topbar .wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
     }
-
     .topbar .brand{
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
-      white-space:nowrap;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
     }
-
     .topbar .right{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-
     .topbar .phone{
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      white-space:nowrap;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      opacity: .95;
+      white-space: nowrap;
+      padding: 0;
+      border: none;
+      background: transparent;
     }
-    .topbar .phone:hover{ text-decoration:underline; }
+    .topbar .phone:hover{ text-decoration: underline; }
 
     .topbar nav{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-
     .topbar nav a{
-      color:#fff;
-      text-decoration:none;
-      font-size:14px;
-      padding:6px 10px;
-      border-radius:10px;
-      opacity:.9;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      opacity: .9;
     }
     .topbar nav a:hover{
-      background:rgba(255,255,255,.08);
-      opacity:1;
+      background: rgba(255,255,255,.08);
+      opacity: 1;
     }
 
-    /* ===== ОТСТУПЫ СЕКЦИЙ ===== */
+    /* Секции: вертикальные отступы (горизонтальные делает container) */
     section{
-      padding:56px 0;
-      border-top:1px solid rgba(255,255,255,.08);
+      padding: 56px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
     }
     #hero{
-      border-top:none;
-      padding-top:64px;
-      padding-bottom:44px;
+      border-top: none;
+      padding-top: 64px;
+      padding-bottom: 44px;
     }
     footer{
-      padding:30px 0 40px;
-      border-top:1px solid rgba(255,255,255,.1);
+      padding: 28px 0 44px;
+      border-top: 1px solid rgba(255,255,255,.10);
     }
 
-    /* HERO */
+    /* Маркеры списков */
+    .dot-list{ list-style: disc; padding-left: 20px; }
+    .dot-list li{ margin: 8px 0; }
+
+    /* HERO: телефон текстом */
     .hero-phone{
-      margin:10px 0 18px;
-      font-size:20px;
-      font-weight:700;
+      margin: 10px 0 18px;
+      font-size: 20px;
+      font-weight: 700;
     }
     .hero-phone a{
-      color:#fff;
-      text-decoration:none;
+      color: #fff;
+      text-decoration: none;
+      opacity: .98;
+      white-space: nowrap;
     }
-    .hero-phone a:hover{ text-decoration:underline; }
+    .hero-phone a:hover{ text-decoration: underline; }
+    .hero-phone .hint{
+      display:block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      opacity: .75;
+    }
 
+    /* текст согласия под кнопкой */
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
       align-items:flex-start;
-      margin:12px 0 10px;
+      margin: 12px 0 8px;
     }
-
     .hero-consent{
-      flex-basis:100%;
-      font-size:12px;
-      opacity:.75;
-      line-height:1.35;
-      max-width:75ch;
+      flex-basis: 100%;
+      margin: 0;
+      font-size: 12px;
+      opacity: .75;
+      line-height: 1.35;
+      max-width: 75ch;
     }
-
     .hero-consent a{
-      color:#8ab4ff;
-      text-decoration:underline;
+      color: #8ab4ff;
+      text-decoration: underline;
     }
 
-    /* Каталог группировка */
-    .cat{ margin-top:14px; }
-
+    /* Каталог: группировка */
+    .cat{ margin-top: 14px; }
     .cat summary{
-      cursor:pointer;
-      font-weight:700;
-      padding:10px 12px;
-      border-radius:12px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      user-select:none;
+      cursor: pointer;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      list-style: none;
+      user-select: none;
     }
-
-    .cat[open] summary{ margin-bottom:12px; }
+    .cat[open] summary{ margin-bottom: 12px; }
 
     /* Документы */
     .legal-gallery{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:14px;
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
     }
-
     .legal-gallery img{
-      width:100%;
-      border-radius:14px;
-      cursor:zoom-in;
-      transition:.18s;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      cursor: zoom-in;
+      transition: transform .18s ease, box-shadow .18s ease;
+      transform-origin: center;
     }
-
     .legal-gallery img:hover{
-      transform:scale(1.18);
-      box-shadow:0 18px 40px rgba(0,0,0,.45);
+      transform: scale(1.18);
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
+      z-index: 2;
     }
 
-    /* Модалка */
+    /* Модалка документов */
     .doc-modal{
       display:none;
       position:fixed;
@@ -175,37 +192,42 @@
       align-items:center;
       justify-content:center;
       padding:18px;
+      width:100%;
     }
-
     .doc-modal__content{
       position:relative;
-      max-width:1100px;
-      width:96vw;
-      max-height:92vh;
+      width: min(1100px, 96vw);
+      height: min(92vh, 900px);
       display:flex;
       align-items:center;
       justify-content:center;
     }
-
     .doc-modal__content img{
-      max-width:100%;
-      max-height:100%;
-      object-fit:contain;
-      border-radius:14px;
+      max-width: 100%;
+      max-height: 100%;
+      width:auto;
+      height:auto;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      background: #111;
     }
-
     .doc-modal__close{
       position:absolute;
-      top:-10px;
-      right:-10px;
-      width:42px;
-      height:42px;
-      border-radius:50%;
-      border:none;
-      cursor:pointer;
-      font-size:24px;
-      background:#fff;
+      top: -10px;
+      right: -10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 42px;
+      text-align:center;
+      background: rgba(255,255,255,.92);
+      color: #000;
     }
+    .doc-modal__close:hover{ background:#fff; }
   </style>
 </head>
 
@@ -215,8 +237,10 @@
   <div class="container">
     <div class="wrap">
       <a class="brand" href="#hero">ГОСНОМЕРА</a>
+
       <div class="right">
         <a class="phone" href="tel:+79024314930">+7 902 431-49-30</a>
+
         <nav>
           <a href="#catalog">Каталог</a>
           <a href="#process">Как мы работаем</a>
@@ -233,18 +257,53 @@
 
     <p class="hero-phone">
       <a href="tel:+79024314930">+7 902 431-49-30</a>
+      <span class="hint">Нажмите, чтобы позвонить</span>
     </p>
 
-    <div class="hero-actions">
+    <div class="actions hero-actions">
       <a class="btn primary" href="#catalog">Выбрать номер</a>
 
-      <p class="hero-consent">
+      <p class="consent-text hero-consent">
         Нажимая «Выбрать номер», вы соглашаетесь с
-        <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>
+        <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
         и
-        <a href="consent.html" target="_blank">обработкой персональных данных</a>
+        <a href="consent.html" target="_blank" rel="noopener">обработкой персональных данных</a>
       </p>
     </div>
+
+    <ul class="dot-list hero-list">
+      <li>Время изготовления обычно составляет 10–15 минут</li>
+      <li>Примут в ГИБДД и на техосмотре</li>
+      <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
+    </ul>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>Законно и по ГОСТ</h2>
+    <p>
+      Делаем номера на сертифицированных заготовках: формат, шрифт и отражающий слой — по ГОСТ.
+      Это влияет на читаемость, светоотражение и внешний вид номера.
+    </p>
+
+    <ul class="dot-list">
+      <li>Сертифицированные заготовки</li>
+      <li>Правильный формат и шрифт</li>
+      <li>Светоотражающий слой и стойкое покрытие</li>
+    </ul>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <h2>Как мы работаем</h2>
+    <ol>
+      <li>Вы звоните и называете тип номера и количество</li>
+      <li>Мы уточняем данные и подтверждаем заказ</li>
+      <li>Изготавливаем номер за 10–15 минут</li>
+      <li>Вы получаете готовый номер в офисе или с доставкой</li>
+    </ol>
   </div>
 </section>
 
@@ -252,6 +311,169 @@
   <div class="container">
     <h2>Каталог номеров</h2>
     <p>Выберите нужный вариант и нажмите «Заказать».</p>
+
+    <details open class="cat">
+      <summary>Стандартные номера</summary>
+      <div class="cards">
+        <div class="card">
+          <h3>1 госномер на авто (стандарт)</h3>
+          <p class="price">2 200 ₽</p>
+          <button class="btn primary" onclick="tgOrder('1 госномер на авто (стандарт)', '2 200 ₽')">Заказать</button>
+        </div>
+
+        <div class="card">
+          <h3>2 госномера на авто (стандарт)</h3>
+          <p class="price">2 900 ₽</p>
+          <button class="btn primary" onclick="tgOrder('2 госномера на авто (стандарт)', '2 900 ₽')">Заказать</button>
+        </div>
+      </div>
+    </details>
+
+    <details open class="cat">
+      <summary>Квадратные номера</summary>
+      <div class="cards">
+        <div class="card">
+          <h3>Квадратный номер на авто</h3>
+          <p class="price">2 200 ₽</p>
+          <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
+        </div>
+
+        <div class="card">
+          <h3>2 квадратных номера</h3>
+          <p class="price">3 900 ₽</p>
+          <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
+        </div>
+
+        <div class="card">
+          <h3>1 стандартный + 1 квадратный</h3>
+          <p class="price">3 400 ₽</p>
+          <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="cat">
+      <summary>Мотоциклы</summary>
+      <div class="cards">
+        <div class="card">
+          <h3>Номер на мото (стандарт)</h3>
+          <p class="price">2 200 ₽</p>
+          <button class="btn primary" onclick="tgOrder('Номер на мото (стандарт)', '2 200 ₽')">Заказать</button>
+        </div>
+
+        <div class="card">
+          <h3>Номер на мото (мини)</h3>
+          <p class="price">2 200 ₽</p>
+          <button class="btn primary" onclick="tgOrder('Номер на мото (мини)', '2 200 ₽')">Заказать</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="cat">
+      <summary>Прицепы</summary>
+      <div class="cards">
+        <div class="card">
+          <h3>Номер на прицеп (1 шт)</h3>
+          <p class="price">2 200 ₽</p>
+          <button class="btn primary" onclick="tgOrder('Номер на прицеп (1 шт)', '2 200 ₽')">Заказать</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="cat">
+      <summary>Без флага</summary>
+      <div class="cards">
+        <div class="card">
+          <h3>1 госномер без флага</h3>
+          <p class="price">2 200 ₽</p>
+          <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
+        </div>
+
+        <div class="card">
+          <h3>2 госномера без флага</h3>
+          <p class="price">2 900 ₽</p>
+          <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="cat">
+      <summary>Жирные номера</summary>
+      <div class="cards">
+        <div class="card">
+          <h3>Жирные номера (1 шт)</h3>
+          <p class="price">2 500 ₽</p>
+          <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
+        </div>
+
+        <div class="card">
+          <h3>Жирные номера (2 шт)</h3>
+          <p class="price">3 500 ₽</p>
+          <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
+        </div>
+      </div>
+    </details>
+
+    <p class="consent-text" style="margin-top:14px; font-size:12px; opacity:.75; line-height:1.35; max-width:75ch;">
+      Нажимая кнопку «Заказать», вы соглашаетесь с
+      <a href="privacy.html" target="_blank" rel="noopener" style="color:#8ab4ff; text-decoration:underline;">Политикой конфиденциальности</a>
+      и
+      <a href="consent.html" target="_blank" rel="noopener" style="color:#8ab4ff; text-decoration:underline;">обработкой персональных данных</a>
+    </p>
+  </div>
+</section>
+
+<section id="legal">
+  <div class="container">
+    <h2>Юридическая информация</h2>
+
+    <p>
+      Деятельность осуществляется официально.<br>
+      Все заказы оформляются с выдачей чека ККТ и предоставлением гарантии.
+    </p>
+
+    <p class="legal-note">
+      Подтверждающие документы и реквизиты организации размещены ниже.
+    </p>
+
+    <div class="legal-gallery">
+      <img src="image/svidetelstvo-1.jpg" alt="Свидетельство 1" onclick="openDoc(this.src)">
+      <img src="image/svidetelstvo-2.jpg" alt="Свидетельство 2" onclick="openDoc(this.src)">
+      <img src="image/svidetelstvo-3.jpg" alt="Свидетельство 3" onclick="openDoc(this.src)">
+    </div>
+  </div>
+</section>
+
+<section id="comfort">
+  <div class="container">
+    <h2>Для вашего удобства</h2>
+    <ul class="dot-list">
+      <li>Удобная парковка</li>
+      <li>Оплата наличными и по карте</li>
+      <li>Бесплатный Wi-Fi</li>
+      <li>Чашка кофе в офисе</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2>Частые вопросы</h2>
+
+    <h3>Это законно?</h3>
+    <p>Да. Мы работаем по ГОСТ и используем сертифицированные заготовки.</p>
+
+    <h3>Примут ли номер в ГИБДД?</h3>
+    <p>Да. Номера принимаются при проверках и регистрационных действиях.</p>
+
+    <h3>Как долго делается номер?</h3>
+    <p>Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</p>
+
+    <h3>Какая гарантия?</h3>
+    <p>Гарантия 12 месяцев. При дефекте заменим бесплатно.</p>
+
+    <h3>Выдаёте чек?</h3>
+    <p>Да. Оформляем заказ официально и выдаём чек ККТ.</p>
   </div>
 </section>
 
@@ -259,29 +481,56 @@
   <div class="container">
     <h2>Контакты</h2>
     <p><strong>Телефон:</strong> <a href="tel:+79024314930">+7 902 431-49-30</a></p>
-    <p><strong>Адрес:</strong> Республика Марий Эл, г. Волжск</p>
+    <p><strong>Адрес:</strong> Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22</p>
+    <p><strong>Email:</strong> <a href="mailto:alikanto_00@mail.ru">alikanto_00@mail.ru</a></p>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>ООО «АЛИКАНТО» · ИНН 1224005173</p>
+    <p>ООО «АЛИКАНТО»</p>
+    <p>ИНН 1224005173 · ОГРН 1181215000328</p>
+    <p>© Все права защищены</p>
   </div>
 </footer>
 
+<a href="https://t.me/alikanto12" class="tg-float btn primary" target="_blank" rel="noopener">
+  Задать вопрос
+</a>
+
 <script>
-  function openDoc(src){
-    const modal=document.getElementById('docModal');
-    const img=document.getElementById('docModalImg');
-    img.src=src;
-    modal.style.display='flex';
-    document.body.style.overflow='hidden';
+  const TG_USERNAME = "alikanto12"; // без @
+  function tgOrder(product, price){
+    const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}.`;
+    window.open(`https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`, '_blank');
+  }
+</script>
+
+<div id="docModal" class="doc-modal" onclick="closeDoc()">
+  <div class="doc-modal__content" onclick="event.stopPropagation()">
+    <button class="doc-modal__close" onclick="closeDoc()">×</button>
+    <img id="docModalImg" src="" alt="Документ">
+  </div>
+</div>
+
+<script>
+  function openDoc(src) {
+    const modal = document.getElementById('docModal');
+    const img = document.getElementById('docModalImg');
+    img.src = src;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
 
-  function closeDoc(){
-    document.getElementById('docModal').style.display='none';
-    document.body.style.overflow='';
+  function closeDoc() {
+    const modal = document.getElementById('docModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
   }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeDoc();
+  });
 </script>
 
 </body>
