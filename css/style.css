@@ -224,7 +224,7 @@ button:hover{
   filter:brightness(1.06);
 }
 
-Анастасия Закирова, [12.02.2026 18:38]
+
 * { box-sizing: border-box; }
 
 :root{
@@ -491,7 +491,7 @@ a{ color:var(--accent); }
   border-radius:12px;
   text-decoration:none;
   font-weight:600;
-  Анастасия Закирова, [12.02.2026 18:32]
+  
 *{
   box-sizing:border-box;
 }
