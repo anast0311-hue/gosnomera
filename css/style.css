@@ -1,6 +1,9 @@
 /* ===========================
    GOSNOMERA — LIGHT THEME
    Clean + centered layout
+   + HERO taller
+   + Process icons
+   + Cards deeper + hover
    =========================== */
 
 * { box-sizing: border-box; }
@@ -18,6 +21,7 @@
   --accent2: #12b886;
 
   --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+  --shadow2: 0 14px 40px rgba(2, 6, 23, .12);
 }
 
 html { scroll-behavior: smooth; }
@@ -124,11 +128,26 @@ section{
   border-top: 1px solid rgba(15,23,42,.08);
 }
 
+/* ===== HERO — выше и “богаче” по виду ===== */
 #hero{
   border-top: none;
-  padding-top: 64px;
-  padding-bottom: 44px;
+  padding-top: 76px;
+  padding-bottom: 64px;
+
+  /* делаем первый экран выше */
+  min-height: clamp(520px, 78vh, 760px);
+
+  /* лёгкая подсветка на первом экране */
+  background:
+    radial-gradient(900px 420px at 10% 10%, rgba(47,91,255,.10), transparent 60%),
+    radial-gradient(800px 420px at 90% 20%, rgba(18,184,134,.08), transparent 55%);
 }
+
+/* если хочешь потом фон-картинку в hero:
+   background-image: linear-gradient(...), url("image/hero.jpg");
+   background-size: cover;
+   background-position: center;
+*/
 
 footer{
   width:100%;
@@ -215,12 +234,13 @@ li{ margin: 8px 0; }
   text-decoration:none;
 
   box-shadow: 0 6px 18px rgba(2,6,23,.06);
-  transition: transform .08s ease, filter .2s ease, border-color .2s ease, background .2s ease;
+  transition: transform .12s ease, filter .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
 
 .btn:hover, button:hover{
   filter: brightness(1.02);
   border-color: rgba(15,23,42,.18);
+  box-shadow: 0 10px 26px rgba(2,6,23,.10);
 }
 
 .btn:active, button:active{ transform: translateY(1px); }
@@ -247,6 +267,62 @@ li{ margin: 8px 0; }
 }
 #hero .hero-list li{ margin: 6px 0; }
 
+/* ===== PROCESS: “Как мы работаем” с иконками (без правки HTML) ===== */
+#process ol{
+  list-style: none;
+  padding-left: 0;
+  margin-top: 18px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+#process ol li{
+  margin: 0;
+  padding: 14px 14px 14px 14px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: var(--shadow);
+
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+#process ol li:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+  border-color: rgba(15,23,42,.14);
+}
+
+#process ol li::before{
+  content: "•";
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(47,91,255,.10);
+  border: 1px solid rgba(47,91,255,.22);
+  color: var(--text);
+  font-size: 20px;
+  flex: 0 0 44px;
+}
+
+/* Иконки по пунктам */
+#process ol li:nth-child(1)::before{ content: "📞"; }
+#process ol li:nth-child(2)::before{ content: "🧾"; }
+#process ol li:nth-child(3)::before{ content: "⚙️"; }
+#process ol li:nth-child(4)::before{ content: "🚚"; }
+
 /* ===== КАТАЛОГ ===== */
 .cards{
   display:grid;
@@ -257,10 +333,18 @@ li{ margin: 8px 0; }
 
 .card{
   padding: 18px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.85);
+  border-radius: 18px;
+  background: rgba(255,255,255,.90);
   border: 1px solid rgba(15,23,42,.10);
   box-shadow: var(--shadow);
+
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow2);
+  border-color: rgba(15,23,42,.14);
 }
 
 .card h3{
@@ -292,13 +376,15 @@ li{ margin: 8px 0; }
   border: 1px solid rgba(15,23,42,.12);
   background: rgba(255,255,255,.75);
   cursor: zoom-in;
-  transition: transform .18s ease, box-shadow .18s ease;
+
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   transform-origin: center;
 }
 
 .legal-gallery img:hover{
   transform: scale(1.10);
   box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  border-color: rgba(15,23,42,.18);
   z-index: 2;
 }
 
@@ -369,6 +455,12 @@ li{ margin: 8px 0; }
   color: #fff;
   font-weight: 900;
   box-shadow: 0 10px 25px rgba(47,91,255,.22);
+
+  transition: transform .12s ease, filter .2s ease, box-shadow .2s ease;
 }
 
-.tg-float:hover{ filter: brightness(1.03); }
+.tg-float:hover{
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(47,91,255,.26);
+}
