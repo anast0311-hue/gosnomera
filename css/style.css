@@ -464,3 +464,46 @@ li{ margin: 8px 0; }
   transform: translateY(-1px);
   box-shadow: 0 14px 32px rgba(47,91,255,.26);
 }
+/* =========================
+   HERO: 2 колонки + картинка
+   Файл: /image/hero.JPG  (регистр важен!)
+   ========================= */
+
+/* можно оставить твой #hero как есть, но добавим структуру */
+#hero .hero-grid{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 28px;
+  align-items: center;
+}
+
+/* если хочешь, чтобы герой был чуть “выше”, но ты сказала уже сделано
+   поэтому не лезем в высоту, только на мобильной порядок */
+@media (max-width: 900px){
+  #hero .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* правая колонка */
+#hero .hero-right{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* сама картинка */
+#hero .hero-img{
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid rgba(15,23,42,.12);
+  box-shadow: 0 16px 50px rgba(2, 6, 23, .12);
+}
+
+@media (max-width: 900px){
+  #hero .hero-right{ justify-content: flex-start; }
+  #hero .hero-img{ max-width: 680px; }
+}
