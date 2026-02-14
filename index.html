@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Изготовление автомобильных номеров по ГОСТ</title>
 
-  <!-- Подключаем ТОЛЬКО внешний CSS -->
-  <link rel="stylesheet" href="css/style.css?v=20260212-2">
-
-  <style>
-    /* чтобы якоря не прятались под шапкой */
-    section { scroll-margin-top: 80px; }
-  </style>
+  <!-- Стили (антикэш) -->
+  <link rel="stylesheet" href="css/style.css?v=20260213-1">
 </head>
 
 <body>
@@ -34,45 +29,38 @@
   </div>
 </header>
 
+<!-- HERO -->
 <section id="hero">
   <div class="container">
+    <div class="hero-content">
+      <h1>Изготовление автомобильных номеров по ГОСТ</h1>
 
-    <div class="hero-grid">
-      <div class="hero-left">
-        <h1>Изготовление автомобильных номеров по ГОСТ</h1>
+      <p class="hero-phone">
+        <a href="tel:+79024314930">+7 902 431-49-30</a>
+        <span class="hint">Нажмите, чтобы позвонить</span>
+      </p>
 
-        <p class="hero-phone">
-          <a href="tel:+79024314930">+7 902 431-49-30</a>
-          <span class="hint">Нажмите, чтобы позвонить</span>
+      <div class="actions hero-actions">
+        <a class="btn primary" href="#catalog">Выбрать номер</a>
+
+        <p class="consent-text">
+          Нажимая «Выбрать номер», вы соглашаетесь с
+          <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
+          и
+          <a href="consent.html" target="_blank" rel="noopener">обработкой персональных данных</a>
         </p>
-
-        <div class="actions hero-actions">
-          <a class="btn primary" href="#catalog">Выбрать номер</a>
-
-          <p class="consent-text hero-consent">
-            Нажимая «Выбрать номер», вы соглашаетесь с
-            <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
-            и
-            <a href="consent.html" target="_blank" rel="noopener">обработкой персональных данных</a>
-          </p>
-        </div>
-
-        <ul class="dot-list hero-list">
-          <li>Время изготовления обычно составляет 10–15 минут</li>
-          <li>Примут в ГИБДД и на техосмотре</li>
-          <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
-        </ul>
       </div>
 
-      <div class="hero-right">
-        <img class="hero-img" src="image/hero.JPG" alt="Изготовление госномеров">
-      </div>
+      <ul class="hero-list">
+        <li>Время изготовления обычно 10–15 минут</li>
+        <li>Примут в ГИБДД и на техосмотре</li>
+        <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
+      </ul>
     </div>
-
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="alt">
   <div class="container">
     <h2>Законно и по ГОСТ</h2>
     <p>
@@ -80,7 +68,7 @@
       Это влияет на читаемость, светоотражение и внешний вид номера.
     </p>
 
-    <ul class="dot-list">
+    <ul>
       <li>Сертифицированные заготовки</li>
       <li>Правильный формат и шрифт</li>
       <li>Светоотражающий слой и стойкое покрытие</li>
@@ -100,119 +88,174 @@
   </div>
 </section>
 
-<section id="catalog">
+<section id="catalog" class="alt">
   <div class="container">
     <h2>Каталог номеров</h2>
     <p>Выберите нужный вариант и нажмите «Заказать».</p>
 
+    <!-- Стандартные -->
     <details open class="cat">
       <summary>Стандартные номера</summary>
       <div class="cards">
+
         <div class="card">
-          <h3>1 госномер на авто (стандарт)</h3>
-          <p class="price">2 200 ₽</p>
-          <button class="btn primary" onclick="tgOrder('1 госномер на авто (стандарт)', '2 200 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/standart-1.jpg" alt="Стандартный номер (1 шт)">
+          <div class="card-body">
+            <h3>1 госномер на авто (стандарт)</h3>
+            <p class="price">2 200 ₽</p>
+            <button class="btn primary" onclick="tgOrder('1 госномер на авто (стандарт)', '2 200 ₽')">Заказать</button>
+          </div>
         </div>
 
         <div class="card">
-          <h3>2 госномера на авто (стандарт)</h3>
-          <p class="price">2 900 ₽</p>
-          <button class="btn primary" onclick="tgOrder('2 госномера на авто (стандарт)', '2 900 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/standart-2.jpg" alt="Стандартные номера (2 шт)">
+          <div class="card-body">
+            <h3>2 госномера на авто (стандарт)</h3>
+            <p class="price">2 900 ₽</p>
+            <button class="btn primary" onclick="tgOrder('2 госномера на авто (стандарт)', '2 900 ₽')">Заказать</button>
+          </div>
         </div>
+
       </div>
     </details>
 
+    <!-- Квадратные -->
     <details open class="cat">
       <summary>Квадратные номера</summary>
       <div class="cards">
+
         <div class="card">
-          <h3>Квадратный номер на авто</h3>
-          <p class="price">2 200 ₽</p>
-          <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/square-1.jpg" alt="Квадратный номер">
+          <div class="card-body">
+            <h3>Квадратный номер на авто</h3>
+            <p class="price">2 200 ₽</p>
+            <button class="btn primary" onclick="tgOrder('Квадратный номер на авто', '2 200 ₽')">Заказать</button>
+          </div>
         </div>
 
         <div class="card">
-          <h3>2 квадратных номера</h3>
-          <p class="price">3 900 ₽</p>
-          <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/square-2.jpg" alt="2 квадратных номера">
+          <div class="card-body">
+            <h3>2 квадратных номера</h3>
+            <p class="price">3 900 ₽</p>
+            <button class="btn primary" onclick="tgOrder('2 квадратных номера', '3 900 ₽')">Заказать</button>
+          </div>
         </div>
 
         <div class="card">
-          <h3>1 стандартный + 1 квадратный</h3>
-          <p class="price">3 400 ₽</p>
-          <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/mix-1.jpg" alt="Стандарт + квадрат">
+          <div class="card-body">
+            <h3>1 стандартный + 1 квадратный</h3>
+            <p class="price">3 400 ₽</p>
+            <button class="btn primary" onclick="tgOrder('1 стандартный + 1 квадратный', '3 400 ₽')">Заказать</button>
+          </div>
         </div>
+
       </div>
     </details>
 
+    <!-- Мото -->
     <details class="cat">
       <summary>Мотоциклы</summary>
       <div class="cards">
+
         <div class="card">
-          <h3>Номер на мото (стандарт)</h3>
-          <p class="price">2 200 ₽</p>
-          <button class="btn primary" onclick="tgOrder('Номер на мото (стандарт)', '2 200 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/moto-standart.jpg" alt="Номер мото стандарт">
+          <div class="card-body">
+            <h3>Номер на мото (стандарт)</h3>
+            <p class="price">2 200 ₽</p>
+            <button class="btn primary" onclick="tgOrder('Номер на мото (стандарт)', '2 200 ₽')">Заказать</button>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Номер на мото (мини)</h3>
-          <p class="price">2 200 ₽</p>
-          <button class="btn primary" onclick="tgOrder('Номер на мото (мини)', '2 200 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/moto-mini.jpg" alt="Номер мото мини">
+          <div class="card-body">
+            <h3>Номер на мото (мини)</h3>
+            <p class="price">2 200 ₽</p>
+            <button class="btn primary" onclick="tgOrder('Номер на мото (мини)', '2 200 ₽')">Заказать</button>
+          </div>
         </div>
+
       </div>
     </details>
 
+    <!-- Прицеп -->
     <details class="cat">
       <summary>Прицепы</summary>
       <div class="cards">
+
         <div class="card">
-          <h3>Номер на прицеп (1 шт)</h3>
-          <p class="price">2 200 ₽</p>
-          <button class="btn primary" onclick="tgOrder('Номер на прицеп (1 шт)', '2 200 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/trailer-1.jpg" alt="Номер на прицеп">
+          <div class="card-body">
+            <h3>Номер на прицеп (1 шт)</h3>
+            <p class="price">2 200 ₽</p>
+            <button class="btn primary" onclick="tgOrder('Номер на прицеп (1 шт)', '2 200 ₽')">Заказать</button>
+          </div>
         </div>
+
       </div>
     </details>
 
+    <!-- Без флага -->
     <details class="cat">
       <summary>Без флага</summary>
       <div class="cards">
+
         <div class="card">
-          <h3>1 госномер без флага</h3>
-          <p class="price">2 200 ₽</p>
-          <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/noflag-1.jpg" alt="Номер без флага (1 шт)">
+          <div class="card-body">
+            <h3>1 госномер без флага</h3>
+            <p class="price">2 200 ₽</p>
+            <button class="btn primary" onclick="tgOrder('1 госномер без флага', '2 200 ₽')">Заказать</button>
+          </div>
         </div>
 
         <div class="card">
-          <h3>2 госномера без флага</h3>
-          <p class="price">2 900 ₽</p>
-          <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/noflag-2.jpg" alt="Номера без флага (2 шт)">
+          <div class="card-body">
+            <h3>2 госномера без флага</h3>
+            <p class="price">2 900 ₽</p>
+            <button class="btn primary" onclick="tgOrder('2 госномера без флага', '2 900 ₽')">Заказать</button>
+          </div>
         </div>
+
       </div>
     </details>
 
+    <!-- Жирные -->
     <details class="cat">
       <summary>Жирные номера</summary>
       <div class="cards">
+
         <div class="card">
-          <h3>Жирные номера (1 шт)</h3>
-          <p class="price">2 500 ₽</p>
-          <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/bold-1.jpg" alt="Жирный номер (1 шт)">
+          <div class="card-body">
+            <h3>Жирные номера (1 шт)</h3>
+            <p class="price">2 500 ₽</p>
+            <button class="btn primary" onclick="tgOrder('Жирные номера (1 шт)', '2 500 ₽')">Заказать</button>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Жирные номера (2 шт)</h3>
-          <p class="price">3 500 ₽</p>
-          <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
+          <img class="card-img" src="image/catalog/bold-2.jpg" alt="Жирные номера (2 шт)">
+          <div class="card-body">
+            <h3>Жирные номера (2 шт)</h3>
+            <p class="price">3 500 ₽</p>
+            <button class="btn primary" onclick="tgOrder('Жирные номера (2 шт)', '3 500 ₽')">Заказать</button>
+          </div>
         </div>
+
       </div>
     </details>
 
-    <p class="consent-text" style="margin-top:14px;">
+    <p class="consent-text" style="color: rgba(15,23,42,.70);">
       Нажимая кнопку «Заказать», вы соглашаетесь с
       <a href="privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
       и
       <a href="consent.html" target="_blank" rel="noopener">обработкой персональных данных</a>
     </p>
+
   </div>
 </section>
 
@@ -237,10 +280,10 @@
   </div>
 </section>
 
-<section id="comfort">
+<section id="comfort" class="alt">
   <div class="container">
     <h2>Для вашего удобства</h2>
-    <ul class="dot-list">
+    <ul>
       <li>Удобная парковка</li>
       <li>Оплата наличными и по карте</li>
       <li>Бесплатный Wi-Fi</li>
@@ -260,7 +303,7 @@
     <p>Да. Номера принимаются при проверках и регистрационных действиях.</p>
 
     <h3>Как долго делается номер?</h3>
-    <p>Обычно 10–15 минут после подтверждения данных.</p>
+    <p>Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</p>
 
     <h3>Какая гарантия?</h3>
     <p>Гарантия 12 месяцев. При дефекте заменим бесплатно.</p>
@@ -270,7 +313,7 @@
   </div>
 </section>
 
-<section id="contacts">
+<section id="contacts" class="alt">
   <div class="container">
     <h2>Контакты</h2>
     <p><strong>Телефон:</strong> <a href="tel:+79024314930">+7 902 431-49-30</a></p>
@@ -287,9 +330,18 @@
   </div>
 </footer>
 
-<a href="https://t.me/alikanto12" class="tg-float btn primary" target="_blank" rel="noopener">
+<!-- Плавающая кнопка Telegram -->
+<a href="https://t.me/alikanto12" class="tg-float" target="_blank" rel="noopener">
   Задать вопрос
 </a>
+
+<script>
+  const TG_USERNAME = "alikanto12"; // без @
+  function tgOrder(product, price){
+    const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}.`;
+    window.open(`https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`, '_blank');
+  }
+</script>
 
 <!-- Модалка документов -->
 <div id="docModal" class="doc-modal" onclick="closeDoc()">
@@ -300,13 +352,6 @@
 </div>
 
 <script>
-  const TG_USERNAME = "alikanto12";
-
-  function tgOrder(product, price){
-    const text = `Здравствуйте! Хочу заказать: ${product}. Цена: ${price}.`;
-    window.open(`https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`, '_blank');
-  }
-
   function openDoc(src) {
     const modal = document.getElementById('docModal');
     const img = document.getElementById('docModalImg');
