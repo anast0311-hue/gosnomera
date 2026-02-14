@@ -73,10 +73,17 @@
           <span class="pill__icon">✓</span>
           <span class="pill__text">Сертифицированные заготовки</span>
         </div>
+
+        <!-- ВАЖНО: тут заменили "⌁" на вертикальную иконку "документ" -->
         <div class="pill">
-          <span class="pill__icon">⌁</span>
+          <span class="pill__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+              <path d="M7 2h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V6h2.5L14 3.5zM8 9h8v1.8H8V9zm0 4h8v1.8H8V13zm0 4h6v1.8H8V17z"/>
+            </svg>
+          </span>
           <span class="pill__text">Правильный формат и шрифт</span>
         </div>
+
         <div class="pill">
           <span class="pill__icon">★</span>
           <span class="pill__text">Светоотражающий слой и стойкое покрытие</span>
@@ -212,18 +219,32 @@
       <div class="legal-caption">Официальная аккредитация МВД</div>
 
       <div class="certs">
-        <a class="cert" href="image/svidetelstvo-1.jpg" target="_blank" rel="noopener">
+        <a class="cert" href="image/svidetelstvo-1.jpg" data-lightbox="Свидетельство 1">
           <img src="image/svidetelstvo-1.jpg" alt="Свидетельство 1" />
         </a>
-        <a class="cert" href="image/svidetelstvo-2.jpg" target="_blank" rel="noopener">
+        <a class="cert" href="image/svidetelstvo-2.jpg" data-lightbox="Свидетельство 2">
           <img src="image/svidetelstvo-2.jpg" alt="Свидетельство 2" />
         </a>
-        <a class="cert" href="image/svidetelstvo-3.jpg" target="_blank" rel="noopener">
+        <a class="cert" href="image/svidetelstvo-3.jpg" data-lightbox="Свидетельство 3">
           <img src="image/svidetelstvo-3.jpg" alt="Свидетельство 3" />
         </a>
       </div>
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Просмотр документа">
+      <div class="lightbox__topbar">
+        <div class="lightbox__title" id="lightboxTitle">Документ</div>
+        <button class="lightbox__close" id="lightboxClose" type="button">Закрыть</button>
+      </div>
+      <div class="lightbox__body">
+        <img class="lightbox__img" id="lightboxImg" alt="Документ крупно" />
+      </div>
+    </div>
+  </div>
 
   <!-- ================= COMFORT ================= -->
   <section class="section comfort" id="comfort">
@@ -265,7 +286,9 @@
             Это законно?
             <span class="faq-arrow" aria-hidden="true"></span>
           </summary>
-          <div class="faq-body">Да. Мы работаем по ГОСТ и используем сертифицированные заготовки.</div>
+          <div class="faq-anim">
+            <div class="faq-body">Да. Мы работаем по ГОСТ и используем сертифицированные заготовки.</div>
+          </div>
         </details>
 
         <details class="faq-item">
@@ -273,7 +296,9 @@
             Примут ли номер в ГИБДД?
             <span class="faq-arrow" aria-hidden="true"></span>
           </summary>
-          <div class="faq-body">Да. Номера принимаются при проверках и регистрационных действиях.</div>
+          <div class="faq-anim">
+            <div class="faq-body">Да. Номера принимаются при проверках и регистрационных действиях.</div>
+          </div>
         </details>
 
         <details class="faq-item">
@@ -281,7 +306,9 @@
             Как долго делается номер?
             <span class="faq-arrow" aria-hidden="true"></span>
           </summary>
-          <div class="faq-body">Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</div>
+          <div class="faq-anim">
+            <div class="faq-body">Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</div>
+          </div>
         </details>
 
         <details class="faq-item">
@@ -289,7 +316,9 @@
             Какая гарантия?
             <span class="faq-arrow" aria-hidden="true"></span>
           </summary>
-          <div class="faq-body">Гарантия 12 месяцев. При дефекте заменим бесплатно.</div>
+          <div class="faq-anim">
+            <div class="faq-body">Гарантия 12 месяцев. При дефекте заменим бесплатно.</div>
+          </div>
         </details>
 
         <details class="faq-item">
@@ -297,7 +326,9 @@
             Выдаёте чек?
             <span class="faq-arrow" aria-hidden="true"></span>
           </summary>
-          <div class="faq-body">Да. Оформляем заказ официально и выдаём чек ККТ.</div>
+          <div class="faq-anim">
+            <div class="faq-body">Да. Оформляем заказ официально и выдаём чек ККТ.</div>
+          </div>
         </details>
       </div>
     </div>
@@ -335,6 +366,47 @@
 
   <!-- ================= FLOAT BUTTON ================= -->
   <a class="float-btn" href="tel:+79024314930">Задать вопрос</a>
+
+  <script>
+    // ===== Lightbox для свидетельств (клик = крупно, можно читать) =====
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbTitle = document.getElementById('lightboxTitle');
+      const closeBtn = document.getElementById('lightboxClose');
+      const backdrop = document.getElementById('lightboxBackdrop');
+
+      function openLightbox(src, title){
+        lb.classList.add('is-open');
+        lb.setAttribute('aria-hidden', 'false');
+        lbImg.src = src;
+        lbTitle.textContent = title || 'Документ';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox(){
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('a[data-lightbox]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const src = a.getAttribute('href');
+          const title = a.getAttribute('data-lightbox');
+          openLightbox(src, title);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      backdrop.addEventListener('click', closeLightbox);
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
-
