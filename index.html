@@ -27,55 +27,58 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO (полный экран, фон = image/hero.jpg) ===== -->
   <section id="hero">
     <div class="container">
-      <div class="hero-box">
-        <h1>Изготовление автомобильных номеров по ГОСТ</h1>
+      <div class="hero-content">
+        <div class="hero-box">
+          <h1>Изготовление автомобильных номеров по ГОСТ</h1>
 
-        <a class="hero-phone" href="tel:+79024314930">+7 902 431-49-30</a>
-        <div class="hero-callhint">Нажмите, чтобы позвонить</div>
+          <a class="hero-phone" href="tel:+79024314930">+7 902 431-49-30</a>
+          <div class="hero-callhint">Нажмите, чтобы позвонить</div>
 
-        <div class="actions">
-          <a class="btn primary" href="#catalog">Выбрать номер</a>
+          <div class="actions">
+            <a class="btn primary big" href="#catalog">Выбрать номер</a>
 
-          <p class="consent-text">
-            Нажимая «Выбрать номер», вы соглашаетесь с
-            <a href="privacy.html">Политикой конфиденциальности</a>
-            и <a href="consent.html">обработкой персональных данных</a>
-          </p>
+            <p class="consent-text">
+              Нажимая «Выбрать номер», вы соглашаетесь с
+              <a href="privacy.html">Политикой конфиденциальности</a>
+              и
+              <a href="consent.html">обработкой персональных данных</a>
+            </p>
+          </div>
+
+          <ul class="hero-list">
+            <li>Время изготовления обычно 10–15 минут</li>
+            <li>Примут в ГИБДД и на техосмотре</li>
+            <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
+          </ul>
         </div>
-
-        <ul class="hero-list">
-          <li>Время изготовления обычно 10–15 минут</li>
-          <li>Примут в ГИБДД и на техосмотре</li>
-          <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
-        </ul>
       </div>
     </div>
   </section>
 
   <!-- ===== Законно и по ГОСТ ===== -->
-  <section class="alt">
-    <div class="container">
+  <section id="about" class="alt">
+    <div class="container center">
       <h2>Законно и по ГОСТ</h2>
       <p>
         Делаем номера на сертифицированных заготовках: формат, шрифт и отражающий слой — по ГОСТ.
         Это влияет на читаемость, светоотражение и внешний вид номера.
       </p>
 
-      <ul class="icon-list">
+      <ul class="icon-list centered">
         <li class="icon-item">
-          <div class="icon-badge">✓</div>
-          <div class="icon-text">Сертифицированные заготовки</div>
+          <div class="icon">✓</div>
+          <div><strong>Сертифицированные заготовки</strong></div>
         </li>
         <li class="icon-item">
-          <div class="icon-badge">✓</div>
-          <div class="icon-text">Правильный формат и шрифт</div>
+          <div class="icon">Aa</div>
+          <div><strong>Правильный формат и шрифт</strong></div>
         </li>
         <li class="icon-item">
-          <div class="icon-badge">✓</div>
-          <div class="icon-text">Светоотражающий слой и стойкое покрытие</div>
+          <div class="icon green">✦</div>
+          <div><strong>Светоотражающий слой и стойкое покрытие</strong></div>
         </li>
       </ul>
     </div>
@@ -83,25 +86,25 @@
 
   <!-- ===== Как мы работаем ===== -->
   <section id="how">
-    <div class="container">
+    <div class="container center">
       <h2>Как мы работаем</h2>
 
       <ol class="steps">
         <li class="step">
-          <div class="step-num">1</div>
-          <div class="step-text">Вы звоните и называете тип номера и количество</div>
+          <div class="num">1</div>
+          <div class="txt">Вы звоните и называете тип номера и количество</div>
         </li>
         <li class="step">
-          <div class="step-num">2</div>
-          <div class="step-text">Мы уточняем данные и подтверждаем заказ</div>
+          <div class="num">2</div>
+          <div class="txt">Мы уточняем данные и подтверждаем заказ</div>
         </li>
         <li class="step">
-          <div class="step-num">3</div>
-          <div class="step-text">Изготавливаем номер за 10–15 минут</div>
+          <div class="num">3</div>
+          <div class="txt">Изготавливаем номер за 10–15 минут</div>
         </li>
         <li class="step">
-          <div class="step-num">4</div>
-          <div class="step-text">Вы получаете готовый номер в офисе или с доставкой</div>
+          <div class="num">4</div>
+          <div class="txt">Вы получаете готовый номер в офисе или с доставкой</div>
         </li>
       </ol>
     </div>
@@ -109,121 +112,124 @@
 
   <!-- ===== Каталог ===== -->
   <section id="catalog" class="alt">
-    <div class="container">
+    <div class="container center">
       <h2>Каталог номеров</h2>
       <p>Выберите нужный вариант и нажмите «Заказать».</p>
 
-      <!-- ВАЖНО:
-           Чтобы на мобиле не было "битых картинок", положи файлы в /изображение/
-           и назови как в src ниже. Или замени src на то, что у тебя реально есть.
-      -->
+      <div class="cards">
+        <div class="card" data-kind="standard">
+          <div class="badge">🚗 Стандарт</div>
+          <h3>1 госномер на авто (стандарт)</h3>
+          <p class="desc">Классический формат. Подходит большинству авто.</p>
+          <div class="price">2 200 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
 
-      <div class="catalog-group">
-        <h3 class="center">Стандартные номера</h3>
-        <div class="cards">
-          <div class="card">
-            <img src="изображение/catalog-standart-1.jpg" alt="Стандартный номер 1 шт">
-            <h3>1 госномер на авто (стандарт)</h3>
-            <div class="price">2 200 ₽</div>
-            <a class="btn primary" href="tel:+79024314930">Заказать</a>
-          </div>
+        <div class="card" data-kind="standard">
+          <div class="badge">🚗 Стандарт</div>
+          <h3>2 госномера на авто (стандарт)</h3>
+          <p class="desc">Комплект из двух номеров.</p>
+          <div class="price">2 900 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
 
-          <div class="card">
-            <img src="изображение/catalog-standart-2.jpg" alt="Стандартные номера 2 шт">
-            <h3>2 госномера на авто (стандарт)</h3>
-            <div class="price">3 900 ₽</div>
-            <a class="btn primary" href="tel:+79024314930">Заказать</a>
-          </div>
+        <div class="card" data-kind="square">
+          <div class="badge">🟦 Квадрат</div>
+          <h3>Квадратный номер на авто</h3>
+          <p class="desc">Для авто с креплением под квадратный формат.</p>
+          <div class="price">2 200 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
 
-          <div class="card">
-            <img src="изображение/catalog-pritsep.jpg" alt="Номер на прицеп">
-            <h3>Номер на прицеп</h3>
-            <div class="price">2 200 ₽</div>
-            <a class="btn primary" href="tel:+79024314930">Заказать</a>
-          </div>
+        <div class="card" data-kind="square">
+          <div class="badge">🟦 Квадрат</div>
+          <h3>2 квадратных номера</h3>
+          <p class="desc">Комплект под квадратный формат.</p>
+          <div class="price">3 900 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
+
+        <div class="card" data-kind="moto">
+          <div class="badge">🏍 Мото</div>
+          <h3>Мото номер</h3>
+          <p class="desc">Формат для мотоциклов.</p>
+          <div class="price">1 900 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
+
+        <div class="card" data-kind="trailer">
+          <div class="badge">🚚 Прицеп</div>
+          <h3>Номер на прицеп</h3>
+          <p class="desc">Официальный формат для прицепов.</p>
+          <div class="price">2 200 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
+
+        <div class="card" data-kind="noflag">
+          <div class="badge">⚪ Без флага</div>
+          <h3>Сувенирный номер (без флага)</h3>
+          <p class="desc">Для фото/витрины/сувениров.</p>
+          <div class="price">1 500 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
+        </div>
+
+        <div class="card" data-kind="fat">
+          <div class="badge">🖤 Жирный шрифт</div>
+          <h3>Жирные номера</h3>
+          <p class="desc">Максимальная читаемость и аккуратный вид.</p>
+          <div class="price">от 2 900 ₽</div>
+          <a class="btn" href="tel:+79024314930">Заказать</a>
         </div>
       </div>
-
-      <div class="catalog-group">
-        <h3 class="center">Квадратные номера</h3>
-        <div class="cards">
-          <div class="card">
-            <img src="изображение/catalog-square-1.jpg" alt="Квадратный номер 1 шт">
-            <h3>Квадратный номер (1 шт)</h3>
-            <div class="price">2 200 ₽</div>
-            <a class="btn primary" href="tel:+79024314930">Заказать</a>
-          </div>
-
-          <div class="card">
-            <img src="изображение/catalog-square-2.jpg" alt="Квадратные номера 2 шт">
-            <h3>Квадратные номера (2 шт)</h3>
-            <div class="price">3 900 ₽</div>
-            <a class="btn primary" href="tel:+79024314930">Заказать</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog-group">
-        <h3 class="center">Мото номера</h3>
-        <div class="cards">
-          <div class="card">
-            <img src="изображение/catalog-moto.jpg" alt="Мото номер">
-            <h3>Номер на мото</h3>
-            <div class="price">2 200 ₽</div>
-            <a class="btn primary" href="tel:+79024314930">Заказать</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- ===== Юридическая информация ===== -->
-  <section>
-    <div class="container">
+  <section id="legal">
+    <div class="container center">
       <h2>Юридическая информация</h2>
       <p>
-        Деятельность осуществляется официально. Все заказы оформляются с выдачей чека ККТ и предоставлением гарантии.
+        Деятельность осуществляется официально.<br />
+        Все заказы оформляются с выдачей чека ККТ и предоставлением гарантии.
       </p>
 
-      <!-- Убрали фразу "Подтверждающие документы..." по твоему пункту -->
       <div class="legal-gallery">
-        <img src="изображение/свидетельство-1.jpg" alt="Свидетельство 1">
-        <img src="изображение/свидетельство-2.jpg" alt="Свидетельство 2">
-        <img src="изображение/свидетельство-3.jpg" alt="Свидетельство 3">
+        <img src="image/svidetelstvo-1.jpg" alt="Свидетельство 1" onclick="openDoc(this.src)" />
+        <img src="image/svidetelstvo-2.jpg" alt="Свидетельство 2" onclick="openDoc(this.src)" />
+        <img src="image/svidetelstvo-3.jpg" alt="Свидетельство 3" onclick="openDoc(this.src)" />
       </div>
     </div>
   </section>
 
   <!-- ===== Для вашего удобства ===== -->
-  <section class="alt">
-    <div class="container">
+  <section id="benefits" class="alt">
+    <div class="container center">
       <h2>Для вашего удобства</h2>
 
-      <ul class="icon-list">
+      <ul class="icon-list centered">
         <li class="icon-item">
-          <div class="icon-badge">P</div>
-          <div class="icon-text">Удобная парковка</div>
+          <div class="icon">🅿</div>
+          <div><strong>Удобная парковка</strong></div>
         </li>
         <li class="icon-item">
-          <div class="icon-badge">₽</div>
-          <div class="icon-text">Оплата наличными и по карте</div>
+          <div class="icon">💳</div>
+          <div><strong>Оплата наличными и по карте</strong></div>
         </li>
         <li class="icon-item">
-          <div class="icon-badge">Wi</div>
-          <div class="icon-text">Бесплатный Wi-Fi</div>
+          <div class="icon">📶</div>
+          <div><strong>Бесплатный Wi-Fi</strong></div>
         </li>
         <li class="icon-item">
-          <div class="icon-badge">☕</div>
-          <div class="icon-text">Чашка кофе в офисе</div>
+          <div class="icon">☕</div>
+          <div><strong>Чашка кофе в офисе</strong></div>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
-  <section>
-    <div class="container">
+  <!-- ===== FAQ (аккордеон) ===== -->
+  <section id="faq">
+    <div class="container center">
       <h2>Частые вопросы</h2>
 
       <div class="faq">
@@ -257,23 +263,56 @@
 
   <!-- ===== Контакты ===== -->
   <section id="contacts" class="alt">
-    <div class="container contacts">
+    <div class="container center">
       <h2>Контакты</h2>
 
-      <p><strong>Телефон:</strong> <a href="tel:+79024314930">+7 902 431-49-30</a></p>
-      <p><strong>Адрес:</strong> Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22</p>
-      <p><strong>Email:</strong> <a href="mailto:alikanto_00@mail.ru">alikanto_00@mail.ru</a></p>
-
-      <footer class="center" style="margin-top:24px;">
-        ООО «АЛИКАНТО»<br>
-        ИНН 1224005173 · ОГРН 1181215000328<br>
-        © Все права защищены
-      </footer>
+      <p>
+        Телефон:
+        <a class="contact-link" href="tel:+79024314930">+7 902 431-49-30</a>
+      </p>
+      <p>
+        Адрес: Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22
+      </p>
+      <p>
+        Email:
+        <a class="contact-link" href="mailto:alikanto_00@mail.ru">alikanto_00@mail.ru</a>
+      </p>
     </div>
   </section>
 
-  <!-- Плавающая кнопка -->
+  <footer>
+    <div class="container center">
+      <div>ООО «АЛИКАНТО»</div>
+      <div>ИНН 1224005173 · ОГРН 1181215000328</div>
+      <div>© Все права защищены</div>
+    </div>
+  </footer>
+
+  <!-- плавающая кнопка -->
   <a class="tg-float" href="tel:+79024314930">Задать вопрос</a>
+
+  <!-- модалка документов -->
+  <div class="doc-modal" id="docModal" onclick="closeDoc()">
+    <div class="doc-modal__content" onclick="event.stopPropagation()">
+      <button class="doc-modal__close" onclick="closeDoc()">×</button>
+      <img id="docModalImg" src="" alt="Документ" />
+    </div>
+  </div>
+
+  <script>
+    function openDoc(src){
+      const modal = document.getElementById('docModal');
+      const img = document.getElementById('docModalImg');
+      img.src = src;
+      modal.style.display = 'flex';
+    }
+    function closeDoc(){
+      const modal = document.getElementById('docModal');
+      const img = document.getElementById('docModalImg');
+      img.src = '';
+      modal.style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
