@@ -8,89 +8,87 @@
 </head>
 
 <body>
-  <!-- ============ HEADER ============ -->
+  <!-- ================= HEADER ================= -->
   <header class="topbar">
-    <div class="container topbar__wrap">
-      <div class="brand">ГОСНОМЕРА</div>
+    <div class="container">
+      <div class="topbar__wrap">
+        <div class="brand">ГОСНОМЕРА</div>
 
-      <div class="topbar__right">
-        <!-- телефон текстом (кликабельный), НЕ кнопка -->
-        <a class="topbar__phone" href="tel:+79024314930">+7 902 431-49-30</a>
+        <div class="topbar__right">
+          <a class="phone-link" href="tel:+79024314930">+7 902 431-49-30</a>
 
-        <nav class="topbar__nav">
-          <a href="#catalog">Каталог</a>
-          <a href="#how">Как мы работаем</a>
-          <a href="#contacts">Контакты</a>
-        </nav>
+          <nav class="nav">
+            <a href="#catalog">Каталог</a>
+            <a href="#how">Как мы работаем</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
+  <!-- ================= HERO ================= -->
   <section id="hero" class="hero">
-    <!-- фон-картинка -->
     <div class="hero__bg" aria-hidden="true"></div>
 
-    <!-- премиальная тёмная зона слева -->
-    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="container hero__container">
+      <div class="hero__content">
+        <h1>Изготовление автомобильных номеров по ГОСТ</h1>
 
-    <div class="container hero__content">
-      <div class="hero__left">
-        <h1 class="hero__title">Изготовление автомобильных номеров по ГОСТ</h1>
-
-        <a class="hero__phone" href="tel:+79024314930">+7 902 431-49-30</a>
-
-        <div class="hero__cta">
-          <a class="btn primary" href="#catalog">Выбрать номер</a>
+        <div class="hero__phone">
+          <a class="hero__phoneLink" href="tel:+79024314930">+7 902 431-49-30</a>
+          <div class="hero__hint hero__hint--mobile">Нажмите, чтобы позвонить</div>
         </div>
 
-        <p class="hero__note">
+        <div class="hero__cta">
+          <a class="btn btn-primary" href="#catalog">Выбрать номер</a>
+        </div>
+
+        <p class="hero__legal">
           Нажимая «Выбрать номер», вы соглашаетесь с
-          <a href="privacy.html">Политикой конфиденциальности</a>
-          и <a href="consent.html">обработкой персональных данных</a>
+          <a href="privacy.html">Политикой конфиденциальности</a> и
+          <a href="consent.html">обработкой персональных данных</a>
         </p>
 
         <ul class="hero__bullets">
-          <li><span class="check">✓</span> Время изготовления обычно 10–15 минут</li>
-          <li><span class="check">✓</span> Примут в ГИБДД и на техосмотре</li>
-          <li><span class="check">✓</span> Все типы номеров: стандарт / квадрат / мото / прицеп</li>
+          <li>Время изготовления обычно 10–15 минут</li>
+          <li>Примут в ГИБДД и на техосмотре</li>
+          <li>Все типы номеров: стандарт / квадрат / мото / прицеп</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ ГОСТ ============ -->
-  <section class="section">
+  <!-- ================= ГОСТ ================= -->
+  <section class="section alt" id="gost">
     <div class="container">
-      <h2 class="section__title section__title--xl">Законно и по ГОСТ</h2>
-      <p class="section__lead">
-        Делаем номера на сертифицированных заготовках: формат, шрифт и отражающий слой — по ГОСТ.
-        Это влияет на читаемость, светоотражение и внешний вид номера.
+      <h2 class="section-title">Законно и по ГОСТ</h2>
+      <p class="section-subtitle">
+        Делаем номера на сертифицированных заготовках: формат, шрифт и отражающий слой — по ГОСТ. Это влияет на читаемость,
+        светоотражение и внешний вид номера.
       </p>
 
-      <div class="feature-row feature-row--wide">
-        <div class="feature-pill">
-          <span class="icon-circle icon-circle--ok" aria-hidden="true">✓</span>
-          <span>Сертифицированные заготовки</span>
+      <div class="pill-row">
+        <div class="pill">
+          <span class="pill__icon">✓</span>
+          <span class="pill__text">Сертифицированные заготовки</span>
         </div>
-
-        <div class="feature-pill">
-          <span class="icon-circle icon-circle--doc" aria-hidden="true">А</span>
-          <span>Правильный формат и шрифт</span>
+        <div class="pill">
+          <span class="pill__icon">⌁</span>
+          <span class="pill__text">Правильный формат и шрифт</span>
         </div>
-
-        <div class="feature-pill">
-          <span class="icon-circle icon-circle--star" aria-hidden="true">★</span>
-          <span>Светоотражающий слой и стойкое покрытие</span>
+        <div class="pill">
+          <span class="pill__icon">★</span>
+          <span class="pill__text">Светоотражающий слой и стойкое покрытие</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ HOW ============ -->
-  <section id="how" class="section section--alt">
+  <!-- ================= HOW ================= -->
+  <section class="section" id="how">
     <div class="container">
-      <h2 class="section__title">Как мы работаем</h2>
+      <h2 class="section-title">Как мы работаем</h2>
 
       <div class="steps">
         <div class="step-card">
@@ -116,300 +114,227 @@
     </div>
   </section>
 
-  <!-- ============ CATALOG ============ -->
-  <section id="catalog" class="section">
+  <!-- ================= CATALOG ================= -->
+  <section class="section alt" id="catalog">
     <div class="container">
-      <h2 class="section__title">Каталог номеров</h2>
-      <p class="section__lead">Выберите нужный вариант и нажмите «Заказать».</p>
+      <h2 class="section-title">Каталог номеров</h2>
+      <p class="section-subtitle">Выберите нужный вариант и нажмите «Заказать».</p>
 
-      <!-- Группа 1 -->
-      <h3 class="subhead">Стандартные номера</h3>
-      <div class="cards">
-        <article class="card">
-          <div class="card__title">Стандартный номер (1 шт)</div>
-          <div class="card__price">2 200 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
+      <div class="catalog-block">
+        <h3 class="catalog-title">Стандартные номера</h3>
+        <div class="cards">
+          <article class="card">
+            <div class="card__title">Стандартный номер (1 шт)</div>
+            <div class="card__price">2 200 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
 
-        <article class="card">
-          <div class="card__title">Стандартные номера (2 шт)</div>
-          <div class="card__price">3 500 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
-
-        <article class="card">
-          <div class="card__title">Номер на прицеп</div>
-          <div class="card__price">2 200 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
+          <article class="card">
+            <div class="card__title">Стандартные номера (2 шт)</div>
+            <div class="card__price">3 500 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
+        </div>
       </div>
 
-      <!-- Группа 2 -->
-      <h3 class="subhead">Квадратные номера</h3>
-      <div class="cards">
-        <article class="card">
-          <div class="card__title">Квадратный номер</div>
-          <div class="card__price">2 500 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
+      <div class="catalog-block">
+        <h3 class="catalog-title">Квадратные номера</h3>
+        <div class="cards">
+          <article class="card">
+            <div class="card__title">Квадратный номер</div>
+            <div class="card__price">2 500 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
 
-        <article class="card">
-          <div class="card__title">Квадратные номера (2 шт)</div>
-          <div class="card__price">3 900 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
+          <article class="card">
+            <div class="card__title">Квадратные номера (2 шт)</div>
+            <div class="card__price">3 900 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
+        </div>
       </div>
 
-      <!-- Группа 3 -->
-      <h3 class="subhead">Мото</h3>
-      <div class="cards">
-        <article class="card">
-          <div class="card__title">Мото номер</div>
-          <div class="card__price">2 000 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
+      <div class="catalog-block">
+        <h3 class="catalog-title">Мото</h3>
+        <div class="cards">
+          <article class="card">
+            <div class="card__title">Мото номер</div>
+            <div class="card__price">2 000 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
+        </div>
       </div>
 
-      <!-- Группа 4 -->
-      <h3 class="subhead">Премиум / спец-исполнение</h3>
-      <div class="cards">
-        <article class="card card--premium">
-          <div class="card__title">Номер без флага</div>
-          <div class="card__price">2 800 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
-
-        <article class="card card--premium">
-          <div class="card__title">Жирные номера</div>
-          <div class="card__price">3 200 ₽</div>
-          <a class="btn primary" href="#contacts">Заказать</a>
-        </article>
+      <div class="catalog-block">
+        <h3 class="catalog-title">Прицеп</h3>
+        <div class="cards">
+          <article class="card">
+            <div class="card__title">Номер на прицеп</div>
+            <div class="card__price">2 200 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
+        </div>
       </div>
 
-      <p class="small-note">
-        Нажимая «Заказать», вы соглашаетесь с
+      <div class="catalog-block">
+        <h3 class="catalog-title">Премиум / спец-исполнение</h3>
+        <div class="cards">
+          <article class="card card--premium">
+            <div class="card__title">Номер без флага</div>
+            <div class="card__price">2 800 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
+
+          <article class="card card--premium">
+            <div class="card__title">Жирные номера</div>
+            <div class="card__price">3 200 ₽</div>
+            <button class="btn btn-primary btn-wide" type="button">Заказать</button>
+          </article>
+        </div>
+      </div>
+
+      <p class="catalog-legal">
+        Нажимая кнопку «Заказать», вы соглашаетесь с
         <a href="privacy.html">Политикой конфиденциальности</a> и
         <a href="consent.html">обработкой персональных данных</a>
       </p>
     </div>
   </section>
 
-  <!-- ============ LEGAL ============ -->
-  <section class="section section--alt">
+  <!-- ================= LEGAL INFO ================= -->
+  <section class="section" id="legal">
     <div class="container">
-      <h2 class="section__title">Юридическая информация</h2>
-      <p class="section__lead">
+      <h2 class="section-title">Юридическая информация</h2>
+      <p class="section-subtitle">
         Деятельность осуществляется официально. Все заказы оформляются с выдачей чека ККТ и предоставлением гарантии.
       </p>
 
       <div class="legal-caption">Официальная аккредитация МВД</div>
 
       <div class="certs">
-        <button class="cert" type="button" data-img="image/svidetelstvo-1.jpg" aria-label="Открыть свидетельство 1">
+        <a class="cert" href="image/svidetelstvo-1.jpg" target="_blank" rel="noopener">
           <img src="image/svidetelstvo-1.jpg" alt="Свидетельство 1" />
-        </button>
-
-        <button class="cert" type="button" data-img="image/svidetelstvo-2.jpg" aria-label="Открыть свидетельство 2">
+        </a>
+        <a class="cert" href="image/svidetelstvo-2.jpg" target="_blank" rel="noopener">
           <img src="image/svidetelstvo-2.jpg" alt="Свидетельство 2" />
-        </button>
-
-        <button class="cert" type="button" data-img="image/svidetelstvo-3.jpg" aria-label="Открыть свидетельство 3">
+        </a>
+        <a class="cert" href="image/svidetelstvo-3.jpg" target="_blank" rel="noopener">
           <img src="image/svidetelstvo-3.jpg" alt="Свидетельство 3" />
-        </button>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ COMFORT ============ -->
-  <section class="section section--comfort">
+  <!-- ================= COMFORT ================= -->
+  <section class="section comfort" id="comfort">
     <div class="container">
-      <h2 class="section__title">Для вашего удобства</h2>
+      <h2 class="section-title">Для вашего удобства</h2>
 
       <div class="comfort-grid">
         <div class="comfort-item">
-          <span class="comfort-icon" aria-hidden="true">🅿️</span>
+          <span class="comfort-icon">🅿️</span>
           <span class="comfort-text">Удобная парковка</span>
         </div>
 
         <div class="comfort-item">
-          <span class="comfort-icon" aria-hidden="true">💳</span>
+          <span class="comfort-icon">💳</span>
           <span class="comfort-text">Оплата наличными и по карте</span>
         </div>
 
         <div class="comfort-item">
-          <span class="comfort-icon" aria-hidden="true">📶</span>
+          <span class="comfort-icon">📶</span>
           <span class="comfort-text">Бесплатный Wi-Fi</span>
         </div>
 
         <div class="comfort-item">
-          <span class="comfort-icon" aria-hidden="true">☕</span>
+          <span class="comfort-icon">☕</span>
           <span class="comfort-text">Чашка кофе в офисе</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section class="section">
+  <!-- ================= FAQ ================= -->
+  <section class="section alt" id="faq">
     <div class="container">
-      <h2 class="section__title">Частые вопросы</h2>
+      <h2 class="section-title">Частые вопросы</h2>
 
-      <div class="faq" data-accordion>
-        <button class="faq-item" type="button" aria-expanded="false">
-          <span class="faq-q">Это законно?</span>
-          <span class="faq-arrow" aria-hidden="true">⌄</span>
-        </button>
-        <div class="faq-a" hidden>
-          Да. Мы работаем по ГОСТ и используем сертифицированные заготовки.
-        </div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>
+            Это законно?
+            <span class="faq-arrow" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-body">Да. Мы работаем по ГОСТ и используем сертифицированные заготовки.</div>
+        </details>
 
-        <button class="faq-item" type="button" aria-expanded="false">
-          <span class="faq-q">Примут ли номер в ГИБДД?</span>
-          <span class="faq-arrow" aria-hidden="true">⌄</span>
-        </button>
-        <div class="faq-a" hidden>
-          Да. Номера принимаются при проверках и регистрационных действиях.
-        </div>
+        <details class="faq-item">
+          <summary>
+            Примут ли номер в ГИБДД?
+            <span class="faq-arrow" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-body">Да. Номера принимаются при проверках и регистрационных действиях.</div>
+        </details>
 
-        <button class="faq-item" type="button" aria-expanded="false">
-          <span class="faq-q">Как долго делается номер?</span>
-          <span class="faq-arrow" aria-hidden="true">⌄</span>
-        </button>
-        <div class="faq-a" hidden>
-          Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.
-        </div>
+        <details class="faq-item">
+          <summary>
+            Как долго делается номер?
+            <span class="faq-arrow" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-body">Обычно 10–15 минут после подтверждения данных. При доставке добавляется время на отправку.</div>
+        </details>
 
-        <button class="faq-item" type="button" aria-expanded="false">
-          <span class="faq-q">Какая гарантия?</span>
-          <span class="faq-arrow" aria-hidden="true">⌄</span>
-        </button>
-        <div class="faq-a" hidden>
-          Гарантия 12 месяцев. При дефекте заменим бесплатно.
-        </div>
+        <details class="faq-item">
+          <summary>
+            Какая гарантия?
+            <span class="faq-arrow" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-body">Гарантия 12 месяцев. При дефекте заменим бесплатно.</div>
+        </details>
 
-        <button class="faq-item" type="button" aria-expanded="false">
-          <span class="faq-q">Выдаёте чек?</span>
-          <span class="faq-arrow" aria-hidden="true">⌄</span>
-        </button>
-        <div class="faq-a" hidden>
-          Да. Оформляем заказ официально и выдаём чек ККТ.
-        </div>
+        <details class="faq-item">
+          <summary>
+            Выдаёте чек?
+            <span class="faq-arrow" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-body">Да. Оформляем заказ официально и выдаём чек ККТ.</div>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- ============ CONTACTS ============ -->
-  <section id="contacts" class="section section--alt">
+  <!-- ================= CONTACTS ================= -->
+  <section class="section" id="contacts">
     <div class="container">
-      <h2 class="section__title">Контакты</h2>
+      <h2 class="section-title">Контакты</h2>
 
       <div class="contacts">
-        <div class="contacts__row">
-          <div class="contacts__label">Телефон:</div>
-          <div class="contacts__value">
-            <a class="contacts__phone" href="tel:+79024314930">+7 902 431-49-30</a>
-          </div>
+        <div class="contacts-row">
+          <span class="contacts-label">Телефон:</span>
+          <a class="contacts-phone" href="tel:+79024314930">+7 902 431-49-30</a>
         </div>
 
-        <div class="contacts__row">
-          <div class="contacts__label">Адрес:</div>
-          <div class="contacts__value">
-            Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22
-          </div>
+        <div class="contacts-row">
+          <span class="contacts-label">Адрес:</span>
+          <span>Республика Марий Эл, г. Волжск, ул. Транспортная, 2М, оф. 22</span>
         </div>
 
-        <div class="contacts__row">
-          <div class="contacts__label">Email:</div>
-          <div class="contacts__value">
-            <a class="contacts__mail" href="mailto:alikanto_00@mail.ru">alikanto_00@mail.ru</a>
-          </div>
-        </div>
-
-        <div class="contacts__org">
-          <div>ООО «АЛИКАНТО»</div>
-          <div class="muted">ИНН 1224005173 · ОГРН 1181215000328</div>
-          <div class="muted">© Все права защищены</div>
+        <div class="contacts-row">
+          <span class="contacts-label">Email:</span>
+          <a class="contacts-email" href="mailto:alikanto_00@mail.ru">alikanto_00@mail.ru</a>
         </div>
       </div>
+
+      <footer class="footer">
+        <div>ООО «АЛИКАНТО»</div>
+        <div>ИНН 1224005173 · ОГРН 1181215000328</div>
+        <div class="muted">© Все права защищены</div>
+      </footer>
     </div>
   </section>
 
-  <!-- Floating button: не телеграм, без фокусов -->
-  <a class="float-btn" href="#contacts">Задать вопрос</a>
-
-  <!-- MODAL for certificates -->
-  <div class="modal" id="imgModal" aria-hidden="true">
-    <button class="modal__backdrop" type="button" aria-label="Закрыть"></button>
-    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Просмотр документа">
-      <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
-      <img class="modal__img" src="" alt="Документ" />
-    </div>
-  </div>
-
-  <script>
-    // smooth anchor
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener("click", (e) => {
-        const id = a.getAttribute("href");
-        if (!id || id === "#") return;
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-
-    // FAQ accordion
-    const accordion = document.querySelector("[data-accordion]");
-    if (accordion) {
-      const items = [...accordion.querySelectorAll(".faq-item")];
-      items.forEach(btn => {
-        btn.addEventListener("click", () => {
-          const expanded = btn.getAttribute("aria-expanded") === "true";
-          const answer = btn.nextElementSibling;
-
-          // close others
-          items.forEach(b => {
-            if (b !== btn) {
-              b.setAttribute("aria-expanded", "false");
-              const a = b.nextElementSibling;
-              if (a) a.hidden = true;
-            }
-          });
-
-          btn.setAttribute("aria-expanded", expanded ? "false" : "true");
-          if (answer) answer.hidden = expanded;
-        });
-      });
-    }
-
-    // Certificates modal (big zoom)
-    const modal = document.getElementById("imgModal");
-    const modalImg = modal?.querySelector(".modal__img");
-    const closeModal = () => {
-      if (!modal) return;
-      modal.classList.remove("is-open");
-      modal.setAttribute("aria-hidden", "true");
-      if (modalImg) modalImg.src = "";
-      document.body.classList.remove("no-scroll");
-    };
-
-    document.querySelectorAll(".cert").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const src = btn.getAttribute("data-img");
-        if (!modal || !modalImg || !src) return;
-        modalImg.src = src;
-        modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("no-scroll");
-      });
-    });
-
-    modal?.querySelector(".modal__backdrop")?.addEventListener("click", closeModal);
-    modal?.querySelector(".modal__close")?.addEventListener("click", closeModal);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-  </script>
+  <!-- ================= FLOAT BUTTON ================= -->
+  <a class="float-btn" href="tel:+79024314930">Задать вопрос</a>
 </body>
 </html>
+
